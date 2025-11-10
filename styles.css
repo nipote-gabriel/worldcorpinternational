@@ -747,6 +747,7 @@ a:hover {
 .email-signup {
     display: flex;
     gap: var(--spacing-2);
+    justify-content: center; /* Center the content horizontally */
 }
 
 .email-input {
@@ -1395,10 +1396,26 @@ a:hover {
 
 .coverage-philosophy .philosophy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
     gap: var(--spacing-8);
-    justify-items: center;
+    justify-items: center; /* Center items within their cells */
     align-items: start;
+    max-width: 900px; /* Limit width to allow centering of the grid itself */
+    margin: 0 auto; /* Center the grid container */
+}
+
+@media (max-width: 1024px) { /* Adjust for medium screens */
+    .coverage-philosophy .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) { /* Adjust for small screens */
+    .coverage-philosophy .philosophy-grid {
+        grid-template-columns: 1fr; /* 1 column */
+        max-width: 300px;
+    }
 }
 
 .coverage-philosophy .philosophy-item {
@@ -2084,6 +2101,7 @@ section {
     padding: var(--spacing-6);
     border: 1px solid var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Ensure it takes full width of its grid column */
 }
 
 .team-member:hover {
@@ -2489,94 +2507,4 @@ section {
     }
     
     .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .investment-details {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2);
-        text-align: left;
-    }
-    
-    .detail-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .detail-label {
-        margin-bottom: 0;
-    }
-    
-    .philosophy-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-filters {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: var(--spacing-2);
-    }
-    
-    .filter-btn {
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-}
-
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-    :root {
-        --background-color: #000;
-        --background-secondary: #111;
-        --text-color: #fff;
-        --border-color: #555;
-    }
-}
-/* Team headshot styling */
-.team-headshot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* Avatar placeholder styling */
-.avatar-placeholder {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.avatar-initials {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.nora-avatar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.kyle-avatar {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.garrett-avatar {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
+        grid-te
