@@ -1,5 +1,5 @@
 /**
- * Headquarters Ventures Website JavaScript
+ * WorldCorp International Website JavaScript
  * Handles loading and displaying podcast episodes and blog posts
  */
 
@@ -57,9 +57,9 @@ class HQVSite {
             this.displayError('Could not load site configuration.');
             // Fallback config
             this.config = {
-                site_name: "Headquarters Ventures",
+                site_name: "WorldCorp International",
                 tagline: "Business, comedy, and the occasional bad idea.",
-                accent_color: "#FFD200",
+                accent_color: "#2B6B99",
                 on_air: false,
                 social: { x: "#", youtube: "#", spotify: "#", apple: "#" }
             };

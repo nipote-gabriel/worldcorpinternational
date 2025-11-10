@@ -2,7 +2,7 @@
 :root {
     --primary-color: #000;
     --secondary-color: #fff;
-    --accent-color: #FFD200;
+    --accent-color: #2B6B99;
     --text-color: #eee;
     --text-secondary: #aaa;
     --background-color: #0b0b0b;
@@ -155,7 +155,7 @@ a:hover {
 .nav-link:hover,
 .nav-link.active {
     color: var(--accent-color);
-    background: rgba(255, 210, 0, 0.1);
+    background: rgba(43, 107, 153, 0.1);
 }
 
 .mobile-menu-toggle {
@@ -640,7 +640,7 @@ a:hover {
 }
 
 .newsletter-section-compact .subscribe-btn:hover {
-    background: #e6bd00;
+    background: #235780;
     transform: translateY(-1px);
 }
 
@@ -769,7 +769,7 @@ a:hover {
 }
 
 .subscribe-btn:hover {
-    background: #e6bd00;
+    background: #235780;
     transform: translateY(-1px);
 }
 
@@ -831,7 +831,7 @@ a:hover {
 }
 
 .view-all-link:hover {
-    color: #e6bd00;
+    color: #235780;
 }
 
 /* Live Indicator - Repositioned */
@@ -1057,7 +1057,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background: #e6bd00;
+    background: #235780;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     color: var(--primary-color);
@@ -1092,8 +1092,8 @@ a:hover {
     white-space: nowrap;
     position: relative;
     border-top: 3px solid var(--accent-color);
-    border-bottom: 2px solid rgba(255, 210, 0, 0.3);
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 210, 0, 0.1);
+    border-bottom: 2px solid rgba(43, 107, 153, 0.3);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(43, 107, 153, 0.1);
 }
 
 .stock-ticker::before {
@@ -1103,7 +1103,7 @@ a:hover {
     top: 0;
     bottom: 0;
     width: 120px;
-    background: linear-gradient(135deg, var(--accent-color), #ffb700);
+    background: linear-gradient(135deg, var(--accent-color), #1e5275);
     color: #000;
     font-weight: 900;
     font-size: 11px;
@@ -1146,11 +1146,11 @@ a:hover {
 }
 
 .ticker-item.sponsor-ad {
-    background: linear-gradient(90deg, rgba(255, 210, 0, 0.2), rgba(255, 210, 0, 0.1));
+    background: linear-gradient(90deg, rgba(43, 107, 153, 0.2), rgba(43, 107, 153, 0.1));
     color: var(--accent-color);
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 210, 0, 0.3);
+    border: 1px solid rgba(43, 107, 153, 0.3);
 }
 
 /* Mobile Ticker Optimizations */
@@ -1224,16 +1224,16 @@ a:hover {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-color), #ffb700);
+    background: linear-gradient(135deg, var(--accent-color), #1e5275);
     padding: 6px;
-    box-shadow: 0 4px 15px rgba(255, 210, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(43, 107, 153, 0.4);
     animation: hq-spin 8s linear infinite;
     transition: all 0.3s ease;
 }
 
 .hq-ticker-icon:hover {
     animation: hq-spin-fast 2s linear infinite;
-    box-shadow: 0 6px 20px rgba(255, 210, 0, 0.6);
+    box-shadow: 0 6px 20px rgba(43, 107, 153, 0.6);
 }
 
 @keyframes hq-spin {
@@ -1348,7 +1348,7 @@ a:hover {
     padding: var(--spacing-3);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    background: rgba(255, 210, 0, 0.05);
+    background: rgba(43, 107, 153, 0.05);
     font-weight: bold;
     margin-bottom: var(--spacing-4);
 }
@@ -1362,7 +1362,7 @@ a:hover {
 .portfolio-summary {
     margin-bottom: var(--spacing-4);
     padding: var(--spacing-3);
-    background: rgba(255, 210, 0, 0.05);
+    background: rgba(43, 107, 153, 0.05);
     border-radius: var(--border-radius);
     border-left: 3px solid var(--accent-color);
 }
@@ -1455,12 +1455,12 @@ a:hover {
 
 /* Sponsors Section */
 .sponsors-section {
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(255, 210, 0, 0.05) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.05) 100%);
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 2px solid var(--accent-color);
     margin-bottom: var(--spacing-6);
-    box-shadow: 0 8px 25px rgba(255, 210, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(43, 107, 153, 0.15);
 }
 
 .sponsors-section h3 {
@@ -1512,9 +1512,9 @@ a:hover {
 }
 
 .sponsor-slide:hover {
-    background: rgba(255, 210, 0, 0.1);
+    background: rgba(43, 107, 153, 0.1);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 210, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(43, 107, 153, 0.2);
 }
 
 .sponsor-slide:hover img {
@@ -1613,19 +1613,19 @@ section {
 }
 
 .view-all:hover {
-    background: rgba(255, 210, 0, 0.1);
+    background: rgba(43, 107, 153, 0.1);
 }
 
 .website-button {
-    background: linear-gradient(135deg, var(--accent-color), #ffb700);
-    color: #000;
+    background: linear-gradient(135deg, var(--accent-color), #1e5275);
+    color: #fff;
     font-weight: 700;
     font-size: var(--font-size-sm);
     padding: 8px 12px;
     border-radius: var(--border-radius);
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 210, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(43, 107, 153, 0.3);
     border: 2px solid transparent;
     display: inline-flex;
     align-items: center;
@@ -1636,10 +1636,10 @@ section {
 }
 
 .website-button:hover {
-    background: linear-gradient(135deg, #ffb700, var(--accent-color));
+    background: linear-gradient(135deg, #1e5275, var(--accent-color));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 210, 0, 0.4);
-    color: #000;
+    box-shadow: 0 6px 16px rgba(43, 107, 153, 0.4);
+    color: #fff;
 }
 
 /* Episodes Grid */
