@@ -7,7 +7,9 @@
   "subscribe_embed": "<!-- Paste your Substack/Beehiiv embed here -->",
   "social": {
     "x": "#",
-    "youtube": "#",
+    "youtube": "https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q",
+    "instagram": "https://www.instagram.com/worldcorpinternational/",
+    "newsletter": "https://worldcorpinternational.beehiiv.com/",
     "spotify": "#",
     "apple": "#"
   }
