@@ -932,7 +932,7 @@ function setupLandingScreen() {
     if (!landingScreen) return;
 
     // Check if user has already seen the landing screen
-    const hasSeenLanding = localStorage.getItem('hasSeenLanding');
+    const hasSeenLanding = localStorage.getItem('wci_landing_v2');
 
     if (hasSeenLanding === 'true') {
         // Hide immediately if already seen
@@ -943,7 +943,7 @@ function setupLandingScreen() {
     // Function to hide landing screen
     function hideLandingScreen() {
         landingScreen.classList.add('hidden');
-        localStorage.setItem('hasSeenLanding', 'true');
+        localStorage.setItem('wci_landing_v2', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
     }
 
