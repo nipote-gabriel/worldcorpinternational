@@ -931,19 +931,11 @@ function setupLandingScreen() {
 
     if (!landingScreen) return;
 
-    // Check if user has already seen the landing screen
-    const hasSeenLanding = localStorage.getItem('wci_landing_v2');
-
-    if (hasSeenLanding === 'true') {
-        // Hide immediately if already seen
-        landingScreen.classList.add('hidden');
-        return;
-    }
+    // Landing screen always shows on page load - no localStorage check
 
     // Function to hide landing screen
     function hideLandingScreen() {
         landingScreen.classList.add('hidden');
-        localStorage.setItem('wci_landing_v2', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
     }
 
