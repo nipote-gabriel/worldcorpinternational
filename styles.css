@@ -597,6 +597,12 @@ a:hover {
 
 .beehiiv-embed {
     width: 100%;
+    height: 100px; /* Increased height to fit content */
+    margin: 0 auto; /* Center the iframe */
+    border-radius: 0px !important;
+    background-color: transparent;
+    box-shadow: none;
+    max-width: 100%;
 }
 
 .beehiiv-embed {
