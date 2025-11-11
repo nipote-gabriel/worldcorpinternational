@@ -750,6 +750,12 @@ a:hover {
     justify-content: center; /* Center the content horizontally */
 }
 
+.newsletter-embed-container {
+    width: 100%;
+    max-width: 400px; /* Match the iframe's width */
+    margin: 0 auto; /* Center the container */
+}
+
 .email-input {
     flex: 1;
     padding: var(--spacing-3);
