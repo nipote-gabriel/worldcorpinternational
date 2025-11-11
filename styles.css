@@ -748,7 +748,6 @@ a:hover {
     display: flex;
     gap: var(--spacing-2);
     justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
 }
 
 .email-input {
