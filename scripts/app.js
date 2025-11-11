@@ -31,6 +31,7 @@ class HQVSite {
             this.setupStockTicker();
             this.setupInfohubScrolling();
             this.setupSponsorCarousel();
+            this.setupVideoMuteToggle();
             
         } catch (error) {
             console.error('Error initializing site:', error);
@@ -813,6 +814,39 @@ class HQVSite {
         sponsorsTrack.style.perspective = '1000px';
     }
 
+    setupVideoMuteToggle() {
+        const video = document.getElementById('hero-video');
+        const muteToggle = document.getElementById('mute-toggle');
+        const muteIcon = muteToggle?.querySelector('.mute-icon');
+        const unmuteIcon = muteToggle?.querySelector('.unmute-icon');
+
+        if (!video || !muteToggle) return;
+
+        // Start with video muted (default behavior)
+        video.muted = true;
+
+        // Toggle mute state
+        muteToggle.addEventListener('click', () => {
+            video.muted = !video.muted;
+
+            // Update icon visibility
+            if (video.muted) {
+                muteIcon.style.display = 'none';
+                unmuteIcon.style.display = 'block';
+            } else {
+                muteIcon.style.display = 'block';
+                unmuteIcon.style.display = 'none';
+            }
+
+            // Track analytics
+            Analytics.trackEvent('Video', video.muted ? 'Muted' : 'Unmuted');
+        });
+
+        // Initialize icon state
+        muteIcon.style.display = 'none';
+        unmuteIcon.style.display = 'block';
+    }
+
 }
 
 // Analytics and tracking
@@ -931,11 +965,24 @@ function setupLandingScreen() {
 
     if (!landingScreen) return;
 
-    // Landing screen always shows on page load - no localStorage check
+    // Check if user has seen the landing screen before
+    const hasSeenLandingScreen = localStorage.getItem('hasSeenLandingScreen');
 
-    // Function to hide landing screen
+    // Check if user came from an external site (not navigating within the site)
+    const referrer = document.referrer;
+    const currentDomain = window.location.hostname;
+    const isExternalVisit = !referrer || !referrer.includes(currentDomain);
+
+    // Only show landing screen on first visit OR when coming from external site
+    if (hasSeenLandingScreen && !isExternalVisit) {
+        landingScreen.classList.add('hidden');
+        return;
+    }
+
+    // Function to hide landing screen and mark as seen
     function hideLandingScreen() {
         landingScreen.classList.add('hidden');
+        localStorage.setItem('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
     }
 
