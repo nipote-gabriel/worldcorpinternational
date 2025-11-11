@@ -874,16 +874,19 @@ function setupPlatformTracking() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Setup landing screen first
+    setupLandingScreen();
+
     // Initialize main site functionality
     window.hqvSite = new HQVSite();
-    
+
     // Setup additional features
     setupSmoothScroll();
     setupPlatformTracking();
-    
+
     // Track initial page view
     Analytics.trackPageView();
-    
+
     // Add CSS variable for accent color from config
     setTimeout(() => {
         if (window.hqvSite?.config?.accent_color) {
@@ -899,26 +902,68 @@ document.addEventListener('DOMContentLoaded', () => {
 function subscribeToNewsletter() {
     const emailInput = document.getElementById('newsletter-email');
     const email = emailInput.value.trim();
-    
+
     if (!email) {
         alert('Please enter your email address');
         return;
     }
-    
+
     if (!email.includes('@')) {
         alert('Please enter a valid email address');
         return;
     }
-    
+
     // Open beehiiv subscription page with email pre-filled if possible
     const subscribeUrl = `https://in-competence-we-trust.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
     window.open(subscribeUrl, '_blank');
-    
+
     // Clear the input
     emailInput.value = '';
-    
+
     // Track subscription attempt
     Analytics.trackEvent('Newsletter', 'Subscribe Attempt', email);
+}
+
+// Landing Screen functionality
+function setupLandingScreen() {
+    const landingScreen = document.getElementById('landing-screen');
+    const skipBtn = document.getElementById('already-subscribed-btn');
+
+    if (!landingScreen) return;
+
+    // Check if user has already seen the landing screen
+    const hasSeenLanding = localStorage.getItem('hasSeenLanding');
+
+    if (hasSeenLanding === 'true') {
+        // Hide immediately if already seen
+        landingScreen.classList.add('hidden');
+        return;
+    }
+
+    // Function to hide landing screen
+    function hideLandingScreen() {
+        landingScreen.classList.add('hidden');
+        localStorage.setItem('hasSeenLanding', 'true');
+        Analytics.trackEvent('Landing Screen', 'Dismissed');
+    }
+
+    // Skip button handler
+    if (skipBtn) {
+        skipBtn.addEventListener('click', hideLandingScreen);
+    }
+
+    // Optional: Auto-hide after successful subscription
+    // Listen for beehiiv form submission events if available
+    const beehiivIframe = landingScreen.querySelector('.beehiiv-embed');
+    if (beehiivIframe) {
+        // Monitor for beehiiv success events
+        window.addEventListener('message', (event) => {
+            // Check if message is from beehiiv and indicates success
+            if (event.data && typeof event.data === 'string' && event.data.includes('success')) {
+                setTimeout(hideLandingScreen, 1500); // Delay to show success message
+            }
+        });
+    }
 }
 
 // Export for use in other scripts if needed
