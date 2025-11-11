@@ -681,7 +681,7 @@ a:hover {
 .beehiiv-embed {
     width: 100%;
     height: 52px; /* Optimized height for the embed */
-    margin: 0 auto; /* Center the iframe */
+    margin: 0; /* Align to left */
     border-radius: 0px !important;
     background-color: transparent;
     box-shadow: none;
@@ -692,7 +692,7 @@ a:hover {
 .newsletter-section-compact .email-signup {
     margin-bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -836,13 +836,13 @@ a:hover {
 .email-signup {
     display: flex;
     gap: var(--spacing-2);
-    justify-content: center; /* Center the content horizontally */
+    justify-content: flex-start; /* Align to the left */
 }
 
 .newsletter-embed-container {
     width: 100%;
-    max-width: 400px; /* Match the iframe's width */
-    margin: 0 auto; /* Center the container */
+    max-width: 100%; /* Full width of content area */
+    margin: 0; /* Remove auto margin to align left */
 }
 
 .email-input {
@@ -1275,13 +1275,13 @@ a:hover {
 
 .landing-screen-overlay .email-signup {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Keep centered for landing overlay */
     margin-bottom: var(--spacing-6);
 }
 
 .landing-screen-overlay .newsletter-embed-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Keep constrained for landing overlay */
 }
 
 .landing-skip-btn {
