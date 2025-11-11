@@ -97,15 +97,17 @@
                     <!-- Large Video Player -->
                     <div class="hero-video-container">
                         <div class="video-embedded-large" id="hero-video-player">
-                            <iframe 
-                                width="100%" 
-                                height="100%" 
-                                src="https://www.youtube.com/embed/0u0UfaPaiEM" 
-                                title="WorldCorp International" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
+                            <video
+                                width="100%"
+                                height="100%"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                style="object-fit: cover;">
+                                <source src="video-intro.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         
                         <!-- Stock Ticker -->
