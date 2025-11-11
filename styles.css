@@ -1125,11 +1125,12 @@ a:hover {
 }
 
 .landing-logo {
-    width: 280px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin: 0 auto var(--spacing-8);
-    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.1));
+    filter: drop-shadow(0 4px 20px rgba(255, 255, 255, 0.15));
     animation: fadeIn 1s ease forwards;
+    border-radius: 50%;
 }
 
 .landing-newsletter-signup {
@@ -1199,7 +1200,8 @@ a:hover {
 
 @media (max-width: 768px) {
     .landing-logo {
-        width: 220px;
+        width: 150px;
+        height: 150px;
     }
 
     .landing-title {
@@ -1212,6 +1214,11 @@ a:hover {
 
     .landing-screen-overlay .newsletter-embed-container {
         max-width: 100%;
+    }
+
+    .landing-skip-btn {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-2) var(--spacing-4);
     }
 }
 
