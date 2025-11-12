@@ -678,7 +678,9 @@ a:hover {
     margin-bottom: var(--spacing-3);
 }
 
-.beehiiv-embed {
+.beehiiv-embed,
+iframe.beehiiv-embed,
+iframe[data-test-id="beehiiv-embed"] {
     width: 100% !important;
     height: 52px !important; /* Optimized height for the embed */
     margin: 0 !important; /* Align to left */
@@ -688,6 +690,14 @@ a:hover {
     max-width: 100% !important;
     min-width: 100% !important;
     display: block !important;
+}
+
+/* Additional override for any beehiiv wrapper elements */
+.newsletter-embed-container iframe,
+.email-signup iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
 }
 
 .newsletter-section-compact .email-signup {
