@@ -976,6 +976,14 @@ function setupLandingScreen() {
     // Only show landing screen on first visit OR when coming from external site
     if (hasSeenLandingScreen && !isExternalVisit) {
         landingScreen.classList.add('hidden');
+
+        // Start the video playing if landing screen is not shown
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+            heroVideo.play().catch(error => {
+                console.log('Video autoplay prevented:', error);
+            });
+        }
         return;
     }
 
@@ -984,6 +992,14 @@ function setupLandingScreen() {
         landingScreen.classList.add('hidden');
         localStorage.setItem('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
+
+        // Start the hero video playing after landing screen is dismissed
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+            heroVideo.play().catch(error => {
+                console.log('Video autoplay prevented:', error);
+            });
+        }
     }
 
     // Skip button handler
