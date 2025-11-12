@@ -2742,6 +2742,9 @@ section {
     width: 120px;
     height: auto;
     margin-bottom: var(--spacing-3);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     filter: drop-shadow(var(--shadow));
 }
 
