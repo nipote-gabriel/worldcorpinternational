@@ -452,6 +452,58 @@ a:hover {
     }
 }
 
+/* Video Scrubber */
+.video-scrubber-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    z-index: 20;
+}
+
+.video-scrubber {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    cursor: pointer;
+    transition: height 0.2s ease;
+}
+
+.video-scrubber:hover {
+    height: 6px;
+}
+
+.video-scrubber::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.video-scrubber::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.video-scrubber::-webkit-slider-runnable-track {
+    border-radius: 2px;
+}
+
 /* Left Column - Video Player */
 .video-column {
     min-width: 0; /* Prevents overflow */
