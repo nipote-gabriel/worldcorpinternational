@@ -404,7 +404,7 @@ a:hover {
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -455,11 +455,11 @@ a:hover {
 /* Video Scrubber */
 .video-scrubber-bar {
     position: absolute;
-    bottom: 0;
+    bottom: 60px;
     left: 0;
     right: 0;
     padding: 8px 12px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
     z-index: 20;
     display: flex;
     align-items: center;
