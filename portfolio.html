@@ -69,40 +69,31 @@
             margin: 0;
         }
 
-        /* Photo Background Section */
+        /* Photo Background Sections */
         .photo-bg-section {
-            display: flex;
+            position: relative;
             height: 55vh;
             min-height: 340px;
-        }
-
-        .photo-bg-panel {
-            position: relative;
-            flex: 1;
             background-size: cover;
             background-position: center 30%;
             background-attachment: fixed;
-            overflow: hidden;
         }
 
-        .photo-bg-panel::after {
+        .photo-bg-section--1 {
+            background-image: url('live show.jpg');
+        }
+
+        .photo-bg-section--2 {
+            background-image: url('live show 2.jpg');
+            height: 40vh;
+            min-height: 240px;
+        }
+
+        .photo-bg-section::after {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
-            transition: opacity 0.4s ease;
-        }
-
-        .photo-bg-panel:hover::after {
-            opacity: 0.6;
-        }
-
-        .photo-bg-panel--1 {
-            background-image: url('live show.jpg');
-        }
-
-        .photo-bg-panel--2 {
-            background-image: url('live show 2.jpg');
         }
 
         .photo-bg-caption {
@@ -121,14 +112,14 @@
 
         @media (max-width: 768px) {
             .photo-bg-section {
-                flex-direction: column;
-                height: auto;
+                background-attachment: scroll;
+                height: 45vw;
+                min-height: 200px;
             }
 
-            .photo-bg-panel {
-                background-attachment: scroll;
-                height: 50vw;
-                min-height: 200px;
+            .photo-bg-section--2 {
+                height: 35vw;
+                min-height: 180px;
             }
         }
 
@@ -468,6 +459,9 @@
             </div>
         </section>
 
+        <!-- Photo Background 2 (mid-page) -->
+        <section class="photo-bg-section photo-bg-section--2"></section>
+
         <!-- Get Notified -->
         <section class="notify-section" id="notify">
             <div class="notify-inner">
@@ -505,14 +499,9 @@
         </section>
     </main>
 
-        <!-- Photo Background -->
-        <section class="photo-bg-section">
-            <div class="photo-bg-panel photo-bg-panel--1">
-                <div class="photo-bg-caption">WorldCorp International — Live in NYC</div>
-            </div>
-            <div class="photo-bg-panel photo-bg-panel--2">
-                <div class="photo-bg-caption">WorldCorp International — Live in NYC</div>
-            </div>
+        <!-- Photo Background 1 (bottom) -->
+        <section class="photo-bg-section photo-bg-section--1">
+            <div class="photo-bg-caption">WorldCorp International — Live in NYC</div>
         </section>
 
     <!-- Footer -->
