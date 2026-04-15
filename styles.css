@@ -385,7 +385,9 @@ a:hover {
 }
 
 .video-embedded-large {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     background: var(--background-secondary);
     border-radius: 0;
     overflow: hidden;
