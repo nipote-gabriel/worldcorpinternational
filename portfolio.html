@@ -3,550 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Shows - WorldCorp International</title>
-    <meta name="description" content="WorldCorp International live shows in New York City. Comedy, interviews, and a good time.">
-    <meta name="keywords" content="live shows, comedy, events, new york city, worldcorp international, tickets">
+    <title>Capabilities — WorldCorp International</title>
+    <meta name="description" content="Everything WorldCorp International offers, whether or not you asked for it.">
+    <meta name="keywords" content="capabilities, services, consulting, worldcorp international">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://worldcorpinternational.com/portfolio">
-    <meta property="og:title" content="Live Shows - WorldCorp International">
-    <meta property="og:description" content="WorldCorp International live shows in New York City.">
+    <meta property="og:title" content="Capabilities — WorldCorp International">
+    <meta property="og:description" content="Everything we offer, whether or not you asked for it.">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://worldcorpinternational.com/portfolio">
-    <meta property="twitter:title" content="Live Shows - WorldCorp International">
-    <meta property="twitter:description" content="WorldCorp International live shows in New York City.">
+    <meta property="twitter:title" content="Capabilities — WorldCorp International">
+    <meta property="twitter:description" content="Everything we offer, whether or not you asked for it.">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="graphic assets/worldcorp-icon.png">
+    <link rel="apple-touch-icon" href="graphic assets/worldcorp-icon.png">
+
+    <link rel="stylesheet" href="styles-firm.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* Live Shows Page Styles */
-        .shows-hero {
-            background: linear-gradient(160deg, #0a0a0a 0%, #111 50%, #0d1a24 100%);
-            border-bottom: 2px solid var(--accent-color);
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-
-        .shows-hero-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .shows-hero-eyebrow {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin: 0;
-        }
-
-        .shows-hero h1 {
-            font-size: clamp(1.2rem, 4.5vw, 3.6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            color: #fff;
-            margin: 0;
-            white-space: nowrap;
-        }
-
-        .shows-hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 560px;
-            margin: 0;
-        }
-
-        /* Photo Background Sections */
-        .photo-bg-section {
-            position: relative;
-            height: 55vh;
-            min-height: 340px;
-            background-size: cover;
-            background-position: center 30%;
-            background-attachment: fixed;
-        }
-
-        .photo-bg-section--1 {
-            background-image: url('live show.jpg');
-        }
-
-        .photo-bg-section--2 {
-            background-image: url('live show 2.jpg');
-            height: 40vh;
-            min-height: 240px;
-        }
-
-        .photo-bg-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
-        }
-
-        .photo-bg-caption {
-            position: absolute;
-            bottom: 24px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 1;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.45);
-        }
-
-        @media (max-width: 768px) {
-            .photo-bg-section {
-                background-attachment: scroll;
-                height: 45vw;
-                min-height: 200px;
-            }
-
-            .photo-bg-section--2 {
-                height: 35vw;
-                min-height: 180px;
-            }
-        }
-
-        /* Upcoming Shows */
-        .shows-section {
-            padding: 64px 0;
-        }
-
-        .shows-container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .shows-section-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 32px;
-        }
-
-        .show-card {
-            background: var(--background-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 36px;
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 28px;
-            align-items: center;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .show-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 24px rgba(43, 107, 153, 0.15);
-        }
-
-        .show-date-block {
-            text-align: center;
-            min-width: 64px;
-        }
-
-        .show-date-month {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-        }
-
-        .show-date-day {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1;
-        }
-
-        .show-date-year {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .show-info h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .show-venue {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        .show-venue strong {
-            color: var(--text-primary);
-        }
-
-        .show-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .show-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(43, 107, 153, 0.15);
-            color: var(--accent-color);
-            border: 1px solid rgba(43, 107, 153, 0.3);
-        }
-
-        .show-action {
-            text-align: right;
-        }
-
-        .tickets-btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #fff;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background 0.2s ease, transform 0.1s ease;
-            white-space: nowrap;
-        }
-
-        .tickets-btn:hover {
-            background: #3a85c0;
-            transform: translateY(-1px);
-        }
-
-        .tickets-btn.sold-out {
-            background: var(--border-color);
-            color: var(--text-secondary);
-            cursor: default;
-        }
-
-        .tickets-btn.sold-out:hover {
-            transform: none;
-        }
-
-        .tbd-card {
-            border-style: dashed;
-            opacity: 0.6;
-        }
-
-        /* Notify Section */
-        .notify-section {
-            background: var(--background-secondary);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 64px 0;
-            text-align: center;
-        }
-
-        .notify-inner {
-            max-width: 560px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .notify-inner h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 14px;
-        }
-
-        .notify-inner p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-
-        .notify-embed {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* What to Expect */
-        .expect-section {
-            padding: 64px 0;
-        }
-
-        .expect-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        .expect-item {
-            background: var(--background-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 28px 24px;
-        }
-
-        .expect-icon {
-            font-size: 1.8rem;
-            margin-bottom: 14px;
-        }
-
-        .expect-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .expect-item p {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .show-card {
-                grid-template-columns: auto 1fr;
-                grid-template-rows: auto auto;
-            }
-
-            .show-action {
-                grid-column: 1 / -1;
-                text-align: left;
-            }
-
-            .tickets-btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .expect-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .shows-hero {
-                padding: 48px 0 40px;
-            }
-
-            .shows-hero-inner {
-                gap: 16px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://subscribe-forms.beehiiv.com">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <a href="/" class="brand-link">
-                    <img src="graphic assets/worldcorp-icon.png" alt="HQ" class="brand-icon">
-                    <h1 class="brand-title">WorldCorp International</h1>
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q" target="_blank" class="nav-link">Videos</a></li>
-                <li><a href="https://theconglomerate.beehiiv.com/" target="_blank" class="nav-link">News</a></li>
-                <li><a href="portfolio.html" class="nav-link active">Live Shows</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="more.html" class="nav-link">More</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+<body class="firm-body">
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-panel">
-            <div class="mobile-menu-header">
-                <h3 class="mobile-menu-title">Menu</h3>
-                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q" target="_blank" class="nav-link">Videos</a></li>
-                <li><a href="https://theconglomerate.beehiiv.com/" target="_blank" class="nav-link">News</a></li>
-                <li><a href="portfolio.html" class="nav-link active">Live Shows</a></li>
-                <li><a href="more.html" class="nav-link">More</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
+    <header class="firm-nav">
+        <div class="firm-nav-inner">
+            <a href="/" class="firm-brand">
+                <img src="graphic assets/worldcorp-icon.png" alt="WorldCorp International">
+                <span class="firm-brand-word">WorldCorp <em>International</em></span>
+            </a>
+            <ul class="firm-nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="portfolio.html" class="active">Capabilities</a></li>
+                <li><a href="more.html">Insights</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
+            <div class="firm-nav-cta">
+                <a href="#subscribe" class="firm-btn firm-btn--outline">Newsletter</a>
+                <a href="#subscribe" class="firm-btn firm-btn--primary">Book a Consultation</a>
+            </div>
+            <button class="firm-nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </header>
+    <div class="firm-mobile-panel">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="portfolio.html">Capabilities</a></li>
+            <li><a href="more.html">Insights</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#subscribe">Book a Consultation</a></li>
+        </ul>
     </div>
 
     <main>
-        <!-- Hero -->
-        <section class="shows-hero">
-            <div class="shows-hero-inner">
-                <p class="shows-hero-eyebrow">WorldCorp International Presents</p>
-                <h1>Headquarters Comedy</h1>
-                <p>Live comedy and interviews with interesting people doing interesting things. Come laugh and maybe even learn something.</p>
+        <section class="firm-page-hero">
+            <div class="firm-wrap">
+                <p class="firm-eyebrow">Capabilities</p>
+                <h1>Everything we offer. Whether or not you asked.</h1>
+                <p>Nine practice areas, one shared confidence level. Browse below, or just trust us &mdash;
+                    that&rsquo;s usually faster.</p>
             </div>
         </section>
 
-        <!-- Upcoming Shows -->
-        <section class="shows-section">
-            <div class="shows-container">
-                <p class="shows-section-title">Upcoming Shows</p>
-
-                <!-- Show Card: Next Event -->
-                <div class="show-card">
-                    <div class="show-date-block">
-                        <div class="show-date-month">TBD</div>
-                        <div class="show-date-day">—</div>
-                        <div class="show-date-year">2026</div>
+        <section class="firm-section">
+            <div class="firm-wrap">
+                <div class="firm-grid-3 firm-reveal">
+                    <div class="firm-card">
+                        <span class="firm-card-num">01</span>
+                        <h3>Synergy Architecture</h3>
+                        <p>We identify synergies that did not previously exist, then invoice you for finding them.</p>
                     </div>
-                    <div class="show-info">
-                        <h3>Headquarters Comedy &mdash; NYC</h3>
-                        <p class="show-venue"><strong>New York City</strong> &mdash; Venue TBA</p>
-                        <div class="show-tags">
-                            <span class="show-tag">Live Comedy</span>
-                            <span class="show-tag">Interviews</span>
-                            <span class="show-tag">New York</span>
-                        </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">02</span>
+                        <h3>Digital Transformation</h3>
+                        <p>We replace three of your employees with a Slack bot named Steve and call it innovation.</p>
                     </div>
-                    <div class="show-action">
-                        <a href="#notify" class="tickets-btn">Get Notified</a>
+                    <div class="firm-card">
+                        <span class="firm-card-num">03</span>
+                        <h3>Stakeholder Alignment</h3>
+                        <p>We lock every decision-maker in a room until consensus or dehydration &mdash; whichever comes first.</p>
                     </div>
-                </div>
-
-                <!-- Placeholder for more shows -->
-                <div class="show-card tbd-card">
-                    <div class="show-date-block">
-                        <div class="show-date-month">More</div>
-                        <div class="show-date-day">+</div>
-                        <div class="show-date-year">2026</div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">04</span>
+                        <h3>Blockchain-Enabled Thought Leadership</h3>
+                        <p>Nobody fully understands this offering. That is, and has always been, the offering.</p>
                     </div>
-                    <div class="show-info">
-                        <h3>More Shows Coming</h3>
-                        <p class="show-venue">New York City &mdash; Dates and venues to be announced</p>
-                        <div class="show-tags">
-                            <span class="show-tag">Stay Tuned</span>
-                        </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">05</span>
+                        <h3>Change Management</h3>
+                        <p>We manage the change. The change is us, leaving quietly with your Q3 budget.</p>
                     </div>
-                    <div class="show-action">
-                        <a href="#notify" class="tickets-btn">Get Notified</a>
+                    <div class="firm-card">
+                        <span class="firm-card-num">06</span>
+                        <h3>Global Restructuring</h3>
+                        <p>We reorganize your org chart into a shape no one can parse &mdash; including us.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Photo Background 2 (mid-page) -->
-        <section class="photo-bg-section photo-bg-section--2">
-            <div class="photo-bg-caption">Headquarters Comedy — Live in NYC</div>
-        </section>
-
-        <!-- Get Notified -->
-        <section class="notify-section" id="notify">
-            <div class="notify-inner">
-                <h2>Get tickets before they're gone.</h2>
-                <p>Drop your email and we'll let you know the moment tickets go on sale. Shows sell out. Don't be the person who found out too late.</p>
-                <div class="notify-embed">
-                    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-                    <iframe src="https://subscribe-forms.beehiiv.com/bf61c1a8-2752-4b92-b0c3-6faccafde9a7" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 400px; height: 44px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+                    <div class="firm-card">
+                        <span class="firm-card-num">07</span>
+                        <h3>AI Strategy &amp; Enablement</h3>
+                        <p>We will explain what AI is to your board, incorrectly, with total conviction.</p>
+                    </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">08</span>
+                        <h3>Brand &amp; Narrative</h3>
+                        <p>We will help your company sound like it means something. Meaning optional.</p>
+                    </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">09</span>
+                        <h3>Executive Coaching</h3>
+                        <p>We coach executives on how to say &ldquo;no&rdquo; more slowly, so it sounds like &ldquo;maybe.&rdquo;</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- What to Expect -->
-        <section class="shows-section expect-section">
-            <div class="shows-container">
-                <p class="shows-section-title">What to Expect</p>
-                <div class="expect-grid">
-                    <div class="expect-item">
-                        <div class="expect-icon">🎤</div>
-                        <h4>Live Comedy</h4>
-                        <p>Stand-up and sharp commentary on business, the news, and everything the powerful would rather you not laugh at.</p>
-                    </div>
-                    <div class="expect-item">
-                        <div class="expect-icon">🎙️</div>
-                        <h4>Live Interviews</h4>
-                        <p>On-stage conversations with entrepreneurs, thinkers, and people actually building things that matter. In person. In real time.</p>
-                    </div>
-                    <div class="expect-item">
-                        <div class="expect-icon">📍</div>
-                        <h4>New York City</h4>
-                        <p>All shows take place in New York City. Expect a smart crowd, a good bar, and a room full of people who give a damn.</p>
+        <section class="firm-section firm-section--alt">
+            <div class="firm-wrap">
+                <div class="firm-section-head firm-reveal">
+                    <div>
+                        <p class="firm-index-label">Selected Case Studies</p>
+                        <h2>Impact, measured in metrics we defined ourselves.</h2>
                     </div>
                 </div>
+                <div class="firm-grid-3 firm-reveal">
+                    <div class="firm-card">
+                        <span class="firm-card-num">Case 01</span>
+                        <h3>Regional Bakery, Blockchain Pivot</h3>
+                        <p>Helped a family bakery generate $0 in blockchain revenue over 18 months. They make excellent croissants, unrelated to our work.</p>
+                    </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">Case 02</span>
+                        <h3>Mid-Cap Logistics, Org Redesign</h3>
+                        <p>Reorganized a 400-person logistics firm into 14 &ldquo;pods.&rdquo; Nobody, including the pods, knows what a pod is.</p>
+                    </div>
+                    <div class="firm-card">
+                        <span class="firm-card-num">Case 03</span>
+                        <h3>Legacy Retailer, Digital Transformation</h3>
+                        <p>Migrated a 40-year-old retailer to &ldquo;the cloud.&rdquo; The cloud was a shared spreadsheet. It still is.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="firm-cta-banner">
+            <div class="firm-wrap firm-reveal">
+                <h2>Not sure which capability<br>you <em>need</em>? Neither are we.</h2>
+                <a href="#subscribe" class="firm-btn firm-btn--primary firm-btn--arrow">Book a Consultation <span>&rarr;</span></a>
             </div>
         </section>
     </main>
 
-        <!-- Photo Background 1 (bottom) -->
-        <section class="photo-bg-section photo-bg-section--1">
-            <div class="photo-bg-caption">WorldCorp International — Live in NYC</div>
-        </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>WorldCorp International</h3>
-                    <p>Business is our business.</p>
+    <footer class="firm-footer" id="subscribe">
+        <div class="firm-wrap">
+            <div class="firm-footer-grid">
+                <div>
+                    <p class="firm-footer-brand">WorldCorp International</p>
+                    <p class="firm-footer-tag">A global strategy, technology, and vibes consultancy. Business is our business.</p>
+                    <div class="firm-newsletter-inline">
+                        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/bf61c1a8-2752-4b92-b0c3-6faccafde9a7" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no"></iframe>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Content</h4>
-                        <ul>
-                            <li><a href="https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q" target="_blank">YouTube</a></li>
-                            <li><a href="#" id="footer-spotify">Spotify</a></li>
-                            <li><a href="#" id="footer-apple">Apple Podcasts</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-group">
-                        <h4>Newsletter</h4>
-                        <ul>
-                            <li><a href="https://theconglomerate.beehiiv.com/archive" target="_blank">Visit Site</a></li>
-                            <li><a href="https://theconglomerate.beehiiv.com/subscribe" target="_blank">Subscribe</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-group">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="https://x.com/WorldCorp_Intl" target="_blank" id="footer-x">X</a></li>
-                            <li><a href="https://www.instagram.com/worldcorpinternational/" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@worldcorp_international" target="_blank">TikTok</a></li>
-                            <li><a href="https://www.linkedin.com/company/worldcorp-international" target="_blank" id="footer-linkedin">LinkedIn</a></li>
-                        </ul>
-                    </div>
+                <div class="firm-footer-col">
+                    <h5>The Firm</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Capabilities</a></li>
+                        <li><a href="more.html">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="firm-footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/worldcorp-international" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://x.com/WorldCorp_Intl" target="_blank">X</a></li>
+                        <li><a href="https://www.instagram.com/worldcorpinternational/" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="firm-footer-col">
+                    <h5>Editorial</h5>
+                    <ul>
+                        <li><a href="https://incompetencewetrust.beehiiv.com" target="_blank">In Competence We Trust</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q" target="_blank">YouTube</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 WorldCorp International. All rights reserved.</p>
+            <div class="firm-footer-bottom">
+                <span>&copy; 2026 WorldCorp International. A wholly-owned subsidiary of itself.</span>
+                <span>Advice contained on this site is not legal, financial, medical, or otherwise advice of any kind.</span>
             </div>
         </div>
     </footer>
 
-    <script src="scripts/app.js"></script>
+    <script src="scripts/site.js"></script>
 </body>
 </html>
