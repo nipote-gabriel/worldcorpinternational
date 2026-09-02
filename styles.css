@@ -1,3 +1,22 @@
+/* TEST Sticker */
+.test-sticker {
+    position: fixed;
+    top: 40px;
+    right: -90px;
+    z-index: 10000;
+    background: #e0262f;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    padding: 10px 100px;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    user-select: none;
+}
+
 /* CSS Variables */
 :root {
     --primary-color: #000;
