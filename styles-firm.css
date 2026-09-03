@@ -516,8 +516,12 @@
     font-size: 11.5px;
     color: var(--muted);
 }
-.firm-newsletter-inline { margin-top: 6px; }
-.firm-newsletter-inline .beehiiv-embed { width: 100%; max-width: 320px; height: 44px; border-radius: 6px; }
+/* Fixed-height, clipped container: the beehiiv embed script resizes its
+   iframe's inline style a few seconds after load, which would otherwise
+   push the whole footer taller. Clipping the wrapper makes that resize
+   invisible regardless of what height the script sets. */
+.firm-newsletter-inline { margin-top: 6px; height: 44px; overflow: hidden; border-radius: 6px; }
+.firm-newsletter-inline .beehiiv-embed { width: 100%; max-width: 320px; height: 44px !important; border-radius: 6px; border: 0; }
 @media (max-width: 860px) { .firm-footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .firm-footer-grid { grid-template-columns: 1fr; } }
 
