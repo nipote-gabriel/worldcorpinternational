@@ -71,10 +71,76 @@
         });
     }
 
+    function setupContactModal() {
+        var overlay = document.getElementById('contact-modal');
+        if (!overlay) return;
+        var closeBtn = overlay.querySelector('.firm-modal-close');
+        var form = overlay.querySelector('#contact-form');
+        var status = form ? form.querySelector('.firm-form-status') : null;
+        var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+        function open(e) {
+            if (e) e.preventDefault();
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function close() {
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-modal-open="contact"]').forEach(function (el) {
+            el.addEventListener('click', open);
+        });
+        if (closeBtn) closeBtn.addEventListener('click', close);
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) close();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) close();
+        });
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (submitBtn) submitBtn.disabled = true;
+                if (status) {
+                    status.textContent = 'Sending...';
+                    status.className = 'firm-form-status';
+                }
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { Accept: 'application/json' }
+                })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('Request failed');
+                        if (status) {
+                            status.textContent = 'Sent. Someone will pretend to follow up.';
+                            status.className = 'firm-form-status success';
+                        }
+                        form.reset();
+                    })
+                    .catch(function () {
+                        if (status) {
+                            status.textContent = 'Something went wrong. Email gabe@headquarterscomedy.com directly instead.';
+                            status.className = 'firm-form-status error';
+                        }
+                    })
+                    .finally(function () {
+                        if (submitBtn) submitBtn.disabled = false;
+                    });
+            });
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         setupNav();
         setupReveal();
         setupCounters();
         setupSmoothScroll();
+        setupContactModal();
     });
 })();

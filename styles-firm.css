@@ -591,3 +591,74 @@
     .firm-hero { padding: 56px 0 0; }
     .firm-section { padding: 56px 0; }
 }
+
+/* ---------- Contact modal ---------- */
+.firm-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.firm-modal-overlay.active { opacity: 1; pointer-events: auto; }
+.firm-modal {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 40px;
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+    transform: translateY(12px);
+    transition: transform 0.2s ease;
+}
+.firm-modal-overlay.active .firm-modal { transform: translateY(0); }
+.firm-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px;
+}
+.firm-modal-close:hover { color: var(--text); }
+.firm-modal h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.01em;
+    margin: 4px 0 10px;
+}
+.firm-modal-sub { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 26px; }
+.firm-contact-form { display: flex; flex-direction: column; gap: 14px; }
+.firm-contact-form input[type="email"],
+.firm-contact-form textarea {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 13px 14px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    resize: vertical;
+}
+.firm-contact-form input::placeholder,
+.firm-contact-form textarea::placeholder { color: var(--muted); }
+.firm-contact-form input:focus,
+.firm-contact-form textarea:focus { outline: none; border-color: var(--accent); }
+.firm-contact-form button { margin-top: 4px; justify-content: center; }
+.firm-contact-form button:disabled { opacity: 0.6; cursor: default; }
+.firm-form-status { margin: 0; font-size: 13px; min-height: 18px; color: var(--muted); }
+.firm-form-status.success { color: #3ddc84; }
+.firm-form-status.error { color: #ff5a5a; }

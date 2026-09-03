@@ -42,7 +42,7 @@
             </ul>
             <div class="firm-nav-cta">
                 <a href="#subscribe" class="firm-btn firm-btn--outline">Newsletter</a>
-                <a href="#subscribe" class="firm-btn firm-btn--primary">Book a Consultation</a>
+                <a href="#" data-modal-open="contact" class="firm-btn firm-btn--primary">Book a Consultation</a>
             </div>
             <button class="firm-nav-toggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -55,7 +55,7 @@
             <li><a href="portfolio.html">Capabilities</a></li>
             <li><a href="more.html">Insights</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="#subscribe">Book a Consultation</a></li>
+            <li><a href="#" data-modal-open="contact">Book a Consultation</a></li>
         </ul>
     </div>
 
@@ -161,6 +161,7 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="portfolio.html">Capabilities</a></li>
                         <li><a href="more.html">Insights</a></li>
+                        <li><a href="#" data-modal-open="contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="firm-footer-col">
@@ -168,12 +169,15 @@
                     <ul>
                         <li><a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank">LinkedIn</a></li>
                         <li><a href="https://www.instagram.com/headquarterscomedy/" target="_blank">Instagram</a></li>
+                        <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Newsletter</a></li>
                     </ul>
                 </div>
                 <div class="firm-footer-col">
-                    <h5>Editorial</h5>
+                    <h5>Follow Gabe</h5>
                     <ul>
-                        <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">In Competence We Trust</a></li>
+                        <li><a href="https://www.instagram.com/gabe_makes_jokes/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/@gabe_makes_jokes/shorts" target="_blank">YouTube</a></li>
+                        <li><a href="https://x.com/gabe_makes_joke" target="_blank">X</a></li>
                     </ul>
                 </div>
             </div>
@@ -183,6 +187,24 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div class="firm-modal-overlay" id="contact-modal" aria-hidden="true">
+        <div class="firm-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+            <button class="firm-modal-close" aria-label="Close">&times;</button>
+            <p class="firm-eyebrow" style="margin-bottom:8px;">Get In Touch</p>
+            <h3 id="contact-modal-title">Talk to a Managing Director.</h3>
+            <p class="firm-modal-sub">Or just email Gabe directly &mdash; this form does the same thing, faster.</p>
+            <form class="firm-contact-form" id="contact-form" action="https://formsubmit.co/ajax/gabe@headquarterscomedy.com" method="POST">
+                <input type="email" name="email" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+                <input type="hidden" name="_subject" value="New message from the WorldCorp International site">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <button type="submit" class="firm-btn firm-btn--primary">Send Message</button>
+                <p class="firm-form-status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
 
     <script src="scripts/site.js"></script>
 </body>
