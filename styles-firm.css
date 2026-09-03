@@ -261,22 +261,6 @@
 
 .firm-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-.firm-stamp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--muted);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    padding: 7px 12px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-}
-.firm-stamp::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
 /* ---------- Hero visual: fake product panel ---------- */
 .firm-hero-panel {
     background: var(--surface);
