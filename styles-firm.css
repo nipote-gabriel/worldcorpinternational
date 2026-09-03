@@ -343,15 +343,20 @@
 @media (max-width: 760px) { .firm-stats-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Marquee ---------- */
-.firm-marquee-section { padding: 52px 0; border-bottom: 1px solid var(--line-soft); }
+.firm-marquee-section { padding: 88px 0 64px; border-bottom: 1px solid var(--line-soft); }
 .firm-marquee-label {
     text-align: center;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0 0 48px;
+}
+.firm-marquee-label em, .firm-marquee-label span {
+    font-style: normal;
+    color: var(--accent);
 }
 .firm-marquee {
     overflow: hidden;
