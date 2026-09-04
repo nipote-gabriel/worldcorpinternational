@@ -117,6 +117,7 @@
     top: 0;
     z-index: 500;
     background: rgba(10, 10, 11, 0.82);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line-soft);
 }
@@ -578,6 +579,12 @@
 @media (max-width: 640px) {
     .firm-hero { padding: 56px 0 0; }
     .firm-section { padding: 56px 0; }
+    /* Hard line breaks are tuned for desktop width and orphan single
+       words (e.g. "us") once the type reflows at phone widths. */
+    .firm-hero-br { display: none; }
+}
+@media (max-width: 360px) {
+    .firm-brand-word { font-size: 15px; }
 }
 
 /* ---------- Contact modal ---------- */
@@ -585,6 +592,7 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
