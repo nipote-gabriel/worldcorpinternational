@@ -417,6 +417,36 @@
 .firm-card p { margin: 0; color: var(--text-soft); font-size: 14px; line-height: 1.6; }
 @media (max-width: 860px) { .firm-grid-3 { grid-template-columns: 1fr; } }
 
+/* ---------- Capability categories ---------- */
+.firm-cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+    overflow: hidden;
+    align-items: start;
+}
+.firm-cap-col { background: var(--bg); padding: 36px 32px; }
+.firm-cap-col:not(:last-child) { border-right: 1px solid var(--line-soft); }
+.firm-cap-col h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+}
+.firm-cap-col ul { list-style: none; margin: 0; padding: 0; }
+.firm-cap-col li {
+    padding: 13px 0;
+    border-top: 1px solid var(--line-soft);
+    color: var(--text-soft);
+    font-size: 14.5px;
+    line-height: 1.4;
+}
+.firm-cap-col li:first-child { border-top: none; }
+@media (max-width: 860px) { .firm-cap-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Offices ---------- */
 .firm-offices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: 12px; overflow: hidden; }
 .firm-office { background: var(--bg); padding: 22px 24px; }
