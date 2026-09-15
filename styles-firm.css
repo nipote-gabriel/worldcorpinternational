@@ -757,30 +757,6 @@
     line-height: 1.6;
     margin: 0 0 32px;
 }
-.firm-contact-trust {
-    margin-top: 44px;
-    padding-top: 32px;
-    border-top: 1px solid var(--line-soft);
-}
-.firm-contact-trust > p {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 18px;
-}
-.firm-contact-trust-logos { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.firm-contact-trust-logos img {
-    height: 46px;
-    width: auto;
-    object-fit: contain;
-    background: #fff;
-    padding: 8px 14px;
-    border-radius: 8px;
-    filter: grayscale(1);
-    opacity: 0.85;
-}
 @media (max-width: 900px) {
     .firm-contact-hero { flex-direction: column; min-height: 0; }
     .firm-contact-hero-form { width: 100%; padding: 56px var(--gutter) 0; }
