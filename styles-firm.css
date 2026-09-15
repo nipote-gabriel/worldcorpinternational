@@ -710,11 +710,30 @@
 .firm-form-status.error { color: #ff5a5a; }
 
 /* ---------- Get in Touch page ---------- */
-.firm-contact-split {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 56px;
-    align-items: start;
+.firm-contact-hero {
+    display: flex;
+    align-items: stretch;
+    min-height: calc(100vh - 72px);
+}
+.firm-contact-hero-form {
+    width: min(600px, 52%);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 80px min(56px, 5vw) 80px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+}
+.firm-contact-hero-image {
+    flex: 1;
+    position: relative;
+    min-height: 320px;
+    background: var(--bg-raised);
+}
+.firm-contact-hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .firm-form-field { display: flex; flex-direction: column; gap: 10px; }
 .firm-form-field label {
@@ -724,23 +743,50 @@
     color: var(--text-soft);
 }
 .firm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.firm-contact-split h1 {
+.firm-contact-hero-form h1 {
     font-family: var(--display);
     font-weight: 600;
     font-size: clamp(2rem, 3.8vw, 2.8rem);
     letter-spacing: -0.02em;
     margin: 0 0 18px;
 }
-.firm-contact-split > div:first-child > p {
+.firm-contact-hero-form > p {
     font-size: 16.5px;
     color: var(--text-soft);
     max-width: 480px;
     line-height: 1.6;
     margin: 0 0 32px;
 }
-@media (max-width: 860px) {
-    .firm-contact-split { grid-template-columns: 1fr; gap: 40px; }
+.firm-contact-trust {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-soft);
+}
+.firm-contact-trust > p {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+.firm-contact-trust-logos { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.firm-contact-trust-logos img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    filter: grayscale(1);
+    opacity: 0.85;
+}
+@media (max-width: 900px) {
+    .firm-contact-hero { flex-direction: column; min-height: 0; }
+    .firm-contact-hero-form { width: 100%; padding: 56px var(--gutter) 0; }
+    .firm-contact-hero-image { order: -1; min-height: 260px; }
 }
 @media (max-width: 640px) {
     .firm-form-row { grid-template-columns: 1fr; }
+    .firm-contact-hero-form { padding-bottom: 56px; }
 }
