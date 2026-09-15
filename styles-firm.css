@@ -659,18 +659,18 @@
 }
 
 /* ---------- Contact form ---------- */
-.firm-contact-form { display: flex; flex-direction: column; gap: 14px; }
+.firm-contact-form { display: flex; flex-direction: column; gap: 26px; }
 .firm-contact-form input[type="email"],
 .firm-contact-form input[type="text"],
 .firm-contact-form select,
 .firm-contact-form textarea {
     background: var(--bg-raised);
     border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 13px 14px;
+    border-radius: 10px;
+    padding: 17px 18px;
     color: var(--text);
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 15.5px;
     resize: vertical;
     width: 100%;
     color-scheme: dark;
@@ -680,7 +680,7 @@
 .firm-contact-form input:focus,
 .firm-contact-form select:focus,
 .firm-contact-form textarea:focus { outline: none; border-color: var(--accent); }
-.firm-contact-form button { margin-top: 4px; justify-content: center; }
+.firm-contact-form button { margin-top: 10px; padding: 18px 28px; justify-content: center; }
 .firm-contact-form button:disabled { opacity: 0.6; cursor: default; }
 .firm-form-status { margin: 0; font-size: 13px; min-height: 18px; color: var(--muted); }
 .firm-form-status.success { color: #3ddc84; }
@@ -693,15 +693,14 @@
     gap: 56px;
     align-items: start;
 }
-.firm-form-field { display: flex; flex-direction: column; gap: 6px; }
+.firm-form-field { display: flex; flex-direction: column; gap: 10px; }
 .firm-form-field label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-soft);
 }
-.firm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.firm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
 .firm-contact-split h1 {
     font-family: var(--display);
     font-weight: 600;
