@@ -420,7 +420,7 @@
 /* ---------- Capability categories ---------- */
 .firm-cap-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     background: var(--bg);
     border: 1px solid var(--line-soft);
     border-radius: 12px;
@@ -434,8 +434,9 @@
     font-weight: 600;
     font-size: 20px;
     letter-spacing: -0.01em;
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 }
+.firm-cap-col-desc { color: var(--text-soft); font-size: 14px; line-height: 1.55; margin: 0 0 22px; }
 .firm-cap-col ul { list-style: none; margin: 0; padding: 0; }
 .firm-cap-col li {
     padding: 13px 0;
