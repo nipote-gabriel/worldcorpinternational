@@ -307,6 +307,7 @@
 .firm-panel-delta.up { color: #3ddc84; }
 .firm-panel-delta.down { color: #ff5a5a; }
 .firm-panel-delta.flat { color: var(--muted); }
+.firm-panel-row--2col { grid-template-columns: 1fr 1fr; }
 
 /* ---------- Stats ---------- */
 .firm-stats { border-bottom: 1px solid var(--line-soft); }
@@ -639,6 +640,8 @@
 .firm-modal-sub { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 26px; }
 .firm-contact-form { display: flex; flex-direction: column; gap: 14px; }
 .firm-contact-form input[type="email"],
+.firm-contact-form input[type="text"],
+.firm-contact-form select,
 .firm-contact-form textarea {
     background: var(--bg-raised);
     border: 1px solid var(--line);
@@ -648,13 +651,54 @@
     font-family: var(--sans);
     font-size: 14px;
     resize: vertical;
+    width: 100%;
+    color-scheme: dark;
 }
 .firm-contact-form input::placeholder,
 .firm-contact-form textarea::placeholder { color: var(--muted); }
 .firm-contact-form input:focus,
+.firm-contact-form select:focus,
 .firm-contact-form textarea:focus { outline: none; border-color: var(--accent); }
 .firm-contact-form button { margin-top: 4px; justify-content: center; }
 .firm-contact-form button:disabled { opacity: 0.6; cursor: default; }
 .firm-form-status { margin: 0; font-size: 13px; min-height: 18px; color: var(--muted); }
 .firm-form-status.success { color: #3ddc84; }
 .firm-form-status.error { color: #ff5a5a; }
+
+/* ---------- Get in Touch page ---------- */
+.firm-contact-split {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: start;
+    padding: 80px 0;
+}
+.firm-form-field { display: flex; flex-direction: column; gap: 6px; }
+.firm-form-field label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.firm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.firm-contact-split h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+}
+.firm-contact-split > div:first-child > p {
+    font-size: 16.5px;
+    color: var(--text-soft);
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 0 0 32px;
+}
+@media (max-width: 860px) {
+    .firm-contact-split { grid-template-columns: 1fr; gap: 40px; padding: 56px 0; }
+}
+@media (max-width: 640px) {
+    .firm-form-row { grid-template-columns: 1fr; }
+}
