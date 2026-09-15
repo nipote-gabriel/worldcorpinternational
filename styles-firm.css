@@ -622,7 +622,6 @@
     grid-template-columns: 1.05fr 0.95fr;
     gap: 56px;
     align-items: start;
-    padding: 80px 0;
 }
 .firm-form-field { display: flex; flex-direction: column; gap: 6px; }
 .firm-form-field label {
@@ -648,7 +647,7 @@
     margin: 0 0 32px;
 }
 @media (max-width: 860px) {
-    .firm-contact-split { grid-template-columns: 1fr; gap: 40px; padding: 56px 0; }
+    .firm-contact-split { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
     .firm-form-row { grid-template-columns: 1fr; }
