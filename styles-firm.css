@@ -844,7 +844,8 @@
 
 /* ---------- Page header (sub-pages) ---------- */
 .firm-page-hero { padding: 80px 0 52px; border-bottom: 1px solid var(--line-soft); }
-.firm-page-hero--research {
+.firm-page-hero--research,
+.firm-page-hero--office {
     position: relative;
     padding-top: 120px;
     padding-bottom: 92px;
@@ -852,19 +853,25 @@
     overflow: hidden;
     background: var(--bg);
 }
-.firm-page-hero--research::before {
+.firm-page-hero--research::before,
+.firm-page-hero--office::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('graphic assets/research-photo.jpg') center 35% / cover no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.firm-page-hero--research::after {
+.firm-page-hero--research::before { background-image: url('graphic assets/research-photo.jpg'); background-position: center 35%; }
+.firm-page-hero--office::before { background-image: url('graphic assets/office-photo.jpg'); background-position: center 50%; }
+.firm-page-hero--research::after,
+.firm-page-hero--office::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(10, 10, 11, 0.55) 0%, rgba(10, 10, 11, 0.97) 60%, var(--bg) 100%);
 }
-.firm-page-hero--research .firm-wrap { position: relative; z-index: 1; }
+.firm-page-hero--research .firm-wrap,
+.firm-page-hero--office .firm-wrap { position: relative; z-index: 1; }
 .firm-page-hero h1 {
     font-family: var(--display);
     font-weight: 600;
