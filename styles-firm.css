@@ -683,43 +683,6 @@
     .proof-stats { grid-template-columns: 1fr; }
 }
 
-/* ---------- Image banner ---------- */
-.firm-image-banner {
-    position: relative;
-    height: clamp(340px, 46vw, 560px);
-    overflow: hidden;
-    border-bottom: 1px solid var(--line-soft);
-}
-.firm-image-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.firm-image-banner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10, 10, 11, 0.9), rgba(10, 10, 11, 0.05) 60%);
-}
-.firm-image-banner-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-bottom: 44px;
-    z-index: 1;
-}
-.firm-image-banner-caption h2 {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    max-width: 620px;
-    margin: 0;
-}
-
 /* ---------- Section scaffolding ---------- */
 .firm-section { padding: 88px 0; border-bottom: 1px solid var(--line-soft); }
 .firm-section--alt { background: var(--bg-raised); }
