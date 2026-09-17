@@ -930,7 +930,7 @@
     min-height: calc(100vh - 72px);
 }
 .firm-contact-hero-form {
-    width: min(600px, 52%);
+    width: 52%;
     flex-shrink: 0;
     box-sizing: border-box;
     padding: 80px min(56px, 5vw) 80px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
