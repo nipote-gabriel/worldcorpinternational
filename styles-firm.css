@@ -848,8 +848,9 @@
     position: relative;
     padding-top: 120px;
     padding-bottom: 92px;
+    border-bottom: none;
     background:
-        linear-gradient(180deg, rgba(10, 10, 11, 0.5) 0%, rgba(10, 10, 11, 0.94) 80%, var(--bg) 100%),
+        linear-gradient(180deg, rgba(10, 10, 11, 0.5) 0%, rgba(10, 10, 11, 0.98) 55%, var(--bg) 75%),
         url('graphic assets/research-photo.jpg') center 35% / cover no-repeat;
 }
 .firm-page-hero h1 {
