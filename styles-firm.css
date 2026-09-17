@@ -321,9 +321,14 @@
 
 /* ---------- Hero ---------- */
 .firm-hero {
+    position: relative;
     padding: 88px 0 0;
     border-bottom: 1px solid var(--line-soft);
     overflow: hidden;
+    background:
+        radial-gradient(ellipse 55% 45% at 15% 15%, rgba(255, 90, 31, 0.22) 0%, rgba(255, 90, 31, 0) 70%),
+        linear-gradient(115deg, rgba(10, 10, 11, 0.94) 0%, rgba(10, 10, 11, 0.8) 45%, rgba(10, 10, 11, 0.55) 100%),
+        url('graphic assets/skyscraper-worldcorp.jpg') center 20% / cover no-repeat;
 }
 
 .firm-hero-grid {
