@@ -635,6 +635,7 @@
     margin: 0 0 20px;
     max-width: 760px;
 }
+.firm-page-hero h1 span, .firm-page-hero h1 em { font-style: normal; color: var(--accent); }
 .firm-page-hero p { font-size: 16.5px; color: var(--text-soft); max-width: 580px; line-height: 1.6; margin: 0; }
 
 /* ---------- Timeline ---------- */
