@@ -1,16 +1,16 @@
 {
   "site_name": "WorldCorp International",
-  "tagline": "Business, comedy, and the occasional bad idea.",
-  "accent_color": "#2B6B99",
+  "tagline": "Comedy, chaos, and the occasional bad idea.",
+  "accent_color": "#dc2626",
   "on_air": false,
   "live_youtube_id": "dQw4w9WgXcQ",
-  "subscribe_embed": "<!-- Paste your Substack/Beehiiv embed here -->",
+  "subscribe_embed": "<!-- Paste your newsletter embed here -->",
   "social": {
-    "x": "#",
-    "youtube": "https://www.youtube.com/channel/UCir75v6OcimhuKf5Hrv8j7Q",
-    "instagram": "https://www.instagram.com/worldcorpinternational/",
-    "newsletter": "https://worldcorpinternational.beehiiv.com/",
-    "spotify": "#",
-    "apple": "#"
+    "x": "https://x.com/hq_comedy",
+    "youtube": "https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw",
+    "instagram": "https://www.instagram.com/headquarterscomedy/",
+    "newsletter": "https://headquarterscomedy.beehiiv.com/",
+    "linkedin": "https://www.linkedin.com/company/headquarters-comedy/",
+    "tiktok": "https://www.tiktok.com/@headquarterscomedy"
   }
 }

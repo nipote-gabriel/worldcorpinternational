@@ -1,27 +1,22 @@
 /**
  * WorldCorp International Website JavaScript
- * Handles loading and displaying podcast episodes and blog posts
  */
 
-class HQVSite {
+class HQCSite {
     constructor() {
         this.config = null;
         this.episodes = null;
         this.posts = null;
-        
+
         this.init();
     }
 
     async init() {
         try {
-            // Load configuration and data in parallel
-            await Promise.all([
-                this.loadConfig(),
-                this.loadEpisodes(),
-                this.loadPosts()
-            ]);
-            
-            // Initialize UI components
+            await this.loadConfig();
+            await this.loadEpisodes();
+            await this.loadPosts();
+
             this.setupNavigation();
             this.setupLiveIndicator();
             this.setupPlatformLinks();
@@ -34,7 +29,8 @@ class HQVSite {
             this.setupInfohubScrolling();
             this.setupSponsorCarousel();
             this.setupVideoMuteToggle();
-            
+            this.setupContactModal();
+
         } catch (error) {
             console.error('Error initializing site:', error);
             this.displayError('Error initializing site. Please try again later.');
@@ -51,18 +47,14 @@ class HQVSite {
     async loadConfig() {
         try {
             const response = await fetch('/data/config.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.config = await response.json();
         } catch (error) {
             console.error('Error loading config:', error);
-            this.displayError('Could not load site configuration.');
-            // Fallback config
             this.config = {
                 site_name: "WorldCorp International",
-                tagline: "Business, comedy, and the occasional bad idea.",
-                accent_color: "#2B6B99",
+                tagline: "Comedy, chaos, and the occasional bad idea.",
+                accent_color: "#dc2626",
                 on_air: false,
                 social: { x: "#", youtube: "#", spotify: "#", apple: "#" }
             };
@@ -72,14 +64,11 @@ class HQVSite {
     async loadEpisodes() {
         try {
             const response = await fetch('/data/episodes.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
             this.episodes = data.episodes;
         } catch (error) {
             console.error('Error loading episodes:', error);
-            this.displayError('Could not load episodes.');
             this.episodes = [];
         }
     }
@@ -87,24 +76,19 @@ class HQVSite {
     async loadPosts() {
         try {
             const response = await fetch('/data/posts.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
             this.posts = data.posts.filter(post => post.published);
         } catch (error) {
             console.error('Error loading posts:', error);
-            this.displayError('Could not load posts.');
             this.posts = [];
         }
     }
 
     setupNavigation() {
-        // Mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         const mobileOverlay = document.querySelector('.mobile-menu-overlay');
         const mobileClose = document.querySelector('.mobile-menu-close');
-        const navMenu = document.querySelector('.nav-menu');
 
         if (mobileToggle && mobileOverlay) {
             mobileToggle.addEventListener('click', () => {
@@ -129,12 +113,11 @@ class HQVSite {
             });
         }
 
-        // Active nav link highlighting
         const currentPage = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage || 
+            if (link.getAttribute('href') === currentPage ||
                 (currentPage === '/index.html' && link.getAttribute('href') === '/') ||
                 (currentPage === '/' && link.getAttribute('href') === '/')) {
                 link.classList.add('active');
@@ -152,7 +135,6 @@ class HQVSite {
     setupPlatformLinks() {
         if (!this.config?.social) return;
 
-        // Update platform links in subscribe section
         const platformLinks = document.querySelectorAll('.platform-link');
         platformLinks.forEach(link => {
             const platform = link.dataset.platform;
@@ -166,7 +148,6 @@ class HQVSite {
         const container = document.getElementById('latest-episodes');
         if (!container || !this.episodes) return;
 
-        // Show latest 3 episodes
         const latestEpisodes = this.episodes
             .filter(ep => ep.featured)
             .slice(0, 3);
@@ -176,15 +157,12 @@ class HQVSite {
             return;
         }
 
-        const episodeCards = latestEpisodes.map(episode => this.createEpisodeCard(episode));
-        container.innerHTML = episodeCards.join('');
+        container.innerHTML = latestEpisodes.map(ep => this.createEpisodeCard(ep)).join('');
     }
 
     createEpisodeCard(episode) {
         const date = new Date(episode.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+            year: 'numeric', month: 'long', day: 'numeric'
         });
 
         return `
@@ -205,25 +183,21 @@ class HQVSite {
         const container = document.getElementById('recent-posts');
         if (!container || !this.posts) return;
 
-        // Show latest 3 posts
         const recentPosts = this.posts
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .slice(0, 3);
 
         if (recentPosts.length === 0) {
-            container.innerHTML = '<div class="loading">No blog posts available yet.</div>';
+            container.innerHTML = '<div class="loading">No posts available yet.</div>';
             return;
         }
 
-        const postCards = recentPosts.map(post => this.createPostCard(post));
-        container.innerHTML = postCards.join('');
+        container.innerHTML = recentPosts.map(post => this.createPostCard(post)).join('');
     }
 
     createPostCard(post) {
         const date = new Date(post.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+            year: 'numeric', month: 'long', day: 'numeric'
         });
 
         const postUrl = post.url || `/post.html?id=${post.id}`;
@@ -247,7 +221,6 @@ class HQVSite {
         const container = document.getElementById('newsletter-signup');
         if (!container || !this.config?.subscribe_embed) return;
 
-        // Only show if there's actual embed code (not the placeholder comment)
         if (this.config.subscribe_embed.includes('<!-- Paste your')) {
             container.style.display = 'none';
         } else {
@@ -255,15 +228,43 @@ class HQVSite {
         }
     }
 
+    setupContactModal() {
+        const trigger = document.getElementById('get-in-touch-btn');
+        const overlay = document.getElementById('contact-modal-overlay');
+        if (!trigger || !overlay) return;
+
+        const closeBtn = document.getElementById('contact-modal-close');
+
+        const open = () => {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const close = () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        trigger.addEventListener('click', open);
+        closeBtn?.addEventListener('click', close);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) close();
+        });
+    }
+
     setupFooterLinks() {
         if (!this.config?.social) return;
 
-        // Update footer social links
         const footerLinks = {
             'footer-x': this.config.social.x,
             'footer-youtube': this.config.social.youtube,
-            'footer-spotify': this.config.social.spotify,
-            'footer-apple': this.config.social.apple
+            'footer-instagram': this.config.social.instagram,
+            'footer-tiktok': this.config.social.tiktok,
+            'footer-linkedin': this.config.social.linkedin,
+            'footer-newsletter': this.config.social.newsletter
         };
 
         Object.entries(footerLinks).forEach(([id, url]) => {
@@ -274,12 +275,9 @@ class HQVSite {
         });
     }
 
-    // Utility methods
     formatDate(dateString) {
         return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+            year: 'numeric', month: 'long', day: 'numeric'
         });
     }
 
@@ -289,7 +287,6 @@ class HQVSite {
     }
 
     setupPortfolioTracker() {
-        // Portfolio holdings - diversified across major stocks
         this.portfolioHoldings = [
             { symbol: 'AAPL', name: 'Apple Inc.', shares: 12, price: 175.50 },
             { symbol: 'MSFT', name: 'Microsoft Corp.', shares: 8, price: 410.25 },
@@ -303,45 +300,32 @@ class HQVSite {
             { symbol: 'JPM', name: 'JPMorgan Chase', shares: 9, price: 145.25 }
         ];
 
-        // Calculate total portfolio value
-        let totalValue = this.portfolioHoldings.reduce((sum, holding) => 
-            sum + (holding.shares * holding.price), 0);
-
-        // Mock performance data
-        let previousValue = totalValue * 0.985; // Simulate 1.5% gain
+        let totalValue = this.portfolioHoldings.reduce((sum, h) => sum + (h.shares * h.price), 0);
+        let previousValue = totalValue * 0.985;
         let change = totalValue - previousValue;
         let changePercent = (change / previousValue) * 100;
 
-        // Generate mock chart data
         const chartData = this.generateMockChartData(previousValue, totalValue);
 
-        // Update portfolio display
         this.updatePortfolioDisplay(change, changePercent, totalValue);
         this.updatePortfolioHoldings(totalValue);
-
-        // Draw chart
         this.drawPortfolioChart(chartData);
 
-        // Simulate real-time updates every 30 seconds
         setInterval(() => {
-            // Simulate price fluctuations for each holding
-            this.portfolioHoldings.forEach(holding => {
-                const fluctuation = (Math.random() - 0.5) * 0.02; // ±1% price movement
-                holding.price *= (1 + fluctuation);
+            this.portfolioHoldings.forEach(h => {
+                const fluctuation = (Math.random() - 0.5) * 0.02;
+                h.price *= (1 + fluctuation);
             });
 
-            // Recalculate totals
-            totalValue = this.portfolioHoldings.reduce((sum, holding) => 
-                sum + (holding.shares * holding.price), 0);
+            totalValue = this.portfolioHoldings.reduce((sum, h) => sum + (h.shares * h.price), 0);
             change = totalValue - previousValue;
             changePercent = (change / previousValue) * 100;
 
             this.updatePortfolioDisplay(change, changePercent, totalValue);
             this.updatePortfolioHoldings(totalValue);
-            
-            // Update chart data and redraw
+
             chartData.push(totalValue);
-            if (chartData.length > 20) chartData.shift(); // Keep only last 20 points
+            if (chartData.length > 20) chartData.shift();
             this.drawPortfolioChart(chartData);
         }, 30000);
     }
@@ -350,42 +334,35 @@ class HQVSite {
         const holdingsContainer = document.getElementById('portfolio-holdings');
         if (!holdingsContainer) return;
 
-        // Filter holdings that account for >10% of portfolio
         const keyHoldings = this.portfolioHoldings
-            .map(holding => ({
-                ...holding,
-                value: holding.shares * holding.price,
-                percentage: ((holding.shares * holding.price) / totalValue) * 100
-            }))
-            .filter(holding => holding.percentage > 10)
-            .sort((a, b) => b.percentage - a.percentage); // Sort by percentage descending
+            .map(h => ({ ...h, value: h.shares * h.price, percentage: ((h.shares * h.price) / totalValue) * 100 }))
+            .filter(h => h.percentage > 10)
+            .sort((a, b) => b.percentage - a.percentage);
 
-        const holdingsHtml = keyHoldings.map(holding => `
+        holdingsContainer.innerHTML = keyHoldings.map(h => `
             <div class="key-holding-item">
                 <div class="holding-info">
-                    <div class="holding-symbol">${holding.symbol}</div>
-                    <div class="holding-name">${holding.name}</div>
+                    <div class="holding-symbol">${h.symbol}</div>
+                    <div class="holding-name">${h.name}</div>
                 </div>
                 <div class="holding-details">
-                    <div class="holding-value">$${holding.value.toFixed(2)}</div>
-                    <div class="holding-percentage">${holding.percentage.toFixed(1)}%</div>
+                    <div class="holding-value">$${h.value.toFixed(2)}</div>
+                    <div class="holding-percentage">${h.percentage.toFixed(1)}%</div>
                 </div>
             </div>
         `).join('');
-
-        holdingsContainer.innerHTML = holdingsHtml;
     }
 
     generateMockChartData(startPrice, endPrice) {
         const points = 20;
         const data = [];
         const step = (endPrice - startPrice) / points;
-        
+
         for (let i = 0; i <= points; i++) {
-            const noise = (Math.random() - 0.5) * 2; // Add some randomness
+            const noise = (Math.random() - 0.5) * 2;
             data.push(startPrice + (step * i) + noise);
         }
-        
+
         return data;
     }
 
@@ -396,29 +373,20 @@ class HQVSite {
         const totalValueEl = document.getElementById('total-value');
 
         const isPositive = change >= 0;
-        
-        // Update status indicator
+
         if (statusIndicator) {
             statusIndicator.textContent = isPositive ? '▲' : '▼';
             statusIndicator.className = `status-indicator ${isPositive ? 'positive' : 'negative'}`;
         }
 
-        // Update status value
         if (statusValue) {
             const sign = isPositive ? '+' : '';
             statusValue.textContent = `${sign}$${change.toFixed(2)} (${sign}${changePercent.toFixed(2)}%)`;
             statusValue.className = `status-value ${isPositive ? 'positive' : 'negative'}`;
         }
 
-        // Update holding value
-        if (aaplValue) {
-            aaplValue.textContent = `$${totalValue.toFixed(2)}`;
-        }
-
-        // Update total value
-        if (totalValueEl) {
-            totalValueEl.textContent = `$${totalValue.toFixed(2)}`;
-        }
+        if (aaplValue) aaplValue.textContent = `$${totalValue.toFixed(2)}`;
+        if (totalValueEl) totalValueEl.textContent = `$${totalValue.toFixed(2)}`;
     }
 
     drawPortfolioChart(data) {
@@ -429,37 +397,26 @@ class HQVSite {
         const width = canvas.width;
         const height = canvas.height;
 
-        // Clear canvas
         ctx.clearRect(0, 0, width, height);
-
         if (data.length < 2) return;
 
-        // Find min/max for scaling
         const minPrice = Math.min(...data);
         const maxPrice = Math.max(...data);
         const range = maxPrice - minPrice || 1;
 
-        // Set up drawing
-        ctx.strokeStyle = data[data.length - 1] >= data[0] ? '#00ff88' : '#ff4757';
+        ctx.strokeStyle = data[data.length - 1] >= data[0] ? '#ff6b6b' : '#ff4757';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
-        // Draw line
         ctx.beginPath();
         data.forEach((price, index) => {
             const x = (index / (data.length - 1)) * width;
             const y = height - ((price - minPrice) / range) * height;
-            
-            if (index === 0) {
-                ctx.moveTo(x, y);
-            } else {
-                ctx.lineTo(x, y);
-            }
+            index === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         });
         ctx.stroke();
 
-        // Fill area under curve
         ctx.globalAlpha = 0.1;
         ctx.fillStyle = ctx.strokeStyle;
         ctx.lineTo(width, height);
@@ -469,9 +426,8 @@ class HQVSite {
     }
 
     async setupStockTicker() {
-        // Top stocks for the ticker - reduced to ~30 for better performance
         const stocks = [
-            'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'NVDA', 'META', 'NFLX', 
+            'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'NVDA', 'META', 'NFLX',
             'JPM', 'BAC', 'V', 'MA', 'JNJ', 'UNH', 'PG', 'HD',
             'WMT', 'DIS', 'KO', 'PEP', 'NKE', 'MCD', 'COST', 'SBUX',
             'BA', 'CAT', 'XOM', 'CVX', 'SPY', 'QQQ'
@@ -481,14 +437,10 @@ class HQVSite {
         if (!stockTicker) return;
 
         const tickerContent = stockTicker.querySelector('.ticker-content');
-        
-        // Start with immediate mock data so ticker begins scrolling right away
+
         this.generateMockStockData(stocks, tickerContent);
-        
-        // Then fetch real data and replace it (async, non-blocking)
         this.updateStockData(stocks, tickerContent);
-        
-        // Update every 2 minutes (to respect API rate limits)
+
         setInterval(() => {
             this.updateStockData(stocks, tickerContent);
         }, 120000);
@@ -496,64 +448,42 @@ class HQVSite {
 
     async updateStockData(stocks, tickerContent) {
         try {
-            // Fetch real stock data using CORS proxy
             const stockData = await this.fetchStockData(stocks);
 
             const tickerItems = this.insertSponsorAds(stockData.map(stock => {
                 const isPositive = stock.change >= 0;
                 const sign = isPositive ? '+' : '';
                 const cssClass = isPositive ? 'ticker-item' : 'ticker-item negative';
-
                 return `<span class="${cssClass}">${stock.symbol} $${stock.price.toFixed(2)} ${sign}${stock.change.toFixed(2)} (${sign}${stock.changePercent.toFixed(2)}%)</span>`;
             }));
 
             if (tickerContent) {
                 const newContent = tickerItems.join('');
-                // Only update if content actually changed to avoid animation restart
                 if (tickerContent.innerHTML !== newContent) {
-                    // Store current animation state
-                    const computedStyle = window.getComputedStyle(tickerContent);
-                    const animationName = computedStyle.animationName;
-                    const animationDuration = computedStyle.animationDuration;
-                    const animationTimingFunction = computedStyle.animationTimingFunction;
-                    const animationIterationCount = computedStyle.animationIterationCount;
-                    const animationDelay = computedStyle.animationDelay;
-
-                    // Temporarily pause animation
                     tickerContent.style.animationPlayState = 'paused';
-
-                    // Update content
                     tickerContent.innerHTML = newContent;
-
-                    // Force reflow
                     tickerContent.offsetHeight;
-
-                    // Resume animation
                     tickerContent.style.animationPlayState = 'running';
                 }
             }
         } catch (error) {
             console.error('Error updating stock data:', error);
-            // Fallback to mock data if API fails
             this.generateMockStockData(stocks, tickerContent);
         }
     }
 
     async fetchStockData(symbols) {
-        // Real Finnhub API key - will fallback to mock data if out of tokens or API fails
         const API_KEY = 'd31lo2pr01qsprr1j1pgd31lo2pr01qsprr1j1q0';
 
         try {
             const promises = symbols.map(async (symbol) => {
                 try {
-                    // Use CORS proxy to bypass browser CORS restrictions
                     const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`)}`);
 
                     if (response.ok) {
                         const proxyData = await response.json();
                         const apiResponse = JSON.parse(proxyData.contents);
 
-                        // Check if API returned valid data
                         if (apiResponse.c && apiResponse.c > 0) {
                             return {
                                 symbol,
@@ -562,31 +492,23 @@ class HQVSite {
                                 changePercent: Number((apiResponse.dp || 0).toFixed(2))
                             };
                         } else {
-                            // API returned empty/invalid data, use mock
-                            console.warn(`Invalid data for ${symbol}, using mock data`);
                             return this.getMockStockData(symbol);
                         }
                     } else {
-                        console.warn(`Proxy failed for ${symbol}, using mock data`);
                         return this.getMockStockData(symbol);
                     }
                 } catch (error) {
-                    // Network error or other issue, silently fallback to mock data
-                    console.warn(`Error fetching ${symbol}, using mock data:`, error.message);
                     return this.getMockStockData(symbol);
                 }
             });
 
             return Promise.all(promises);
         } catch (error) {
-            // Fallback to all mock data if there's a general error
-            console.warn('General API error, using all mock data:', error.message);
             return symbols.map(symbol => this.getMockStockData(symbol));
         }
     }
-    
+
     getMockStockData(symbol) {
-        // Realistic base prices for fallback
         const basePrices = {
             'AAPL': 195, 'MSFT': 430, 'GOOGL': 175, 'AMZN': 185, 'TSLA': 245,
             'NVDA': 950, 'META': 385, 'NFLX': 485, 'JPM': 165, 'BAC': 38,
@@ -597,8 +519,7 @@ class HQVSite {
         };
 
         const basePrice = basePrices[symbol] || 100;
-        // Smaller, more realistic daily changes
-        const change = (Math.random() - 0.5) * 6; // -$3 to +$3
+        const change = (Math.random() - 0.5) * 6;
         const changePercent = (change / basePrice) * 100;
 
         return {
@@ -617,7 +538,6 @@ class HQVSite {
             const isPositive = change >= 0;
             const sign = isPositive ? '+' : '';
             const cssClass = isPositive ? 'ticker-item' : 'ticker-item negative';
-
             return `<span class="${cssClass}">${symbol} $${basePrice.toFixed(2)} ${sign}${change.toFixed(2)} (${sign}${percentChange.toFixed(2)}%)</span>`;
         });
 
@@ -625,18 +545,10 @@ class HQVSite {
 
         if (tickerContent) {
             const newContent = tickerItemsWithAds.join('');
-            // Only update if content actually changed to avoid animation restart
             if (tickerContent.innerHTML !== newContent) {
-                // Temporarily pause animation
                 tickerContent.style.animationPlayState = 'paused';
-
-                // Update content
                 tickerContent.innerHTML = newContent;
-
-                // Force reflow
                 tickerContent.offsetHeight;
-
-                // Resume animation
                 tickerContent.style.animationPlayState = 'running';
             }
         }
@@ -644,21 +556,19 @@ class HQVSite {
 
     insertSponsorAds(stockItems) {
         const sponsorAds = [
-            '🚀 Lockheed Martin - Advancing Defense Technology',
-            '⚡ Raytheon - Innovation in Aerospace & Defense',
-            '🎯 Boeing - Connecting the World Through Aerospace',
-            '🔮 Palantir - Data-Driven Intelligence Solutions',
-            '🛡️ Department of Defense - Protecting Our Nation',
-            '⭐ Northrop Grumman - Defining the Future of Defense',
-            '🚬 Marlboro - The Taste of Freedom',
-            '💨 Juul - Vapor Technology Innovation'
+            '🎤 WorldCorp International — Funnier than your therapist',
+            '🎭 WorldCorp — Live shows every Thursday',
+            '😂 WorldCorp International — Your new favorite mistake',
+            '🎬 WorldCorp — Watch us embarrass ourselves',
+            '🏢 WorldCorp International — Where careers go to thrive',
+            '🎪 WorldCorp — Professionally unprofessional',
+            '🌟 WorldCorp International — Subscribe now, thank us later',
+            '🎯 WorldCorp — We came, we saw, we made a joke about it'
         ];
 
         const result = [];
         stockItems.forEach((item, index) => {
             result.push(item);
-
-            // Insert sponsor ad after every 10 stocks
             if ((index + 1) % 10 === 0) {
                 const randomAd = sponsorAds[Math.floor(Math.random() * sponsorAds.length)];
                 result.push(`<span class="ticker-item sponsor-ad">${randomAd}</span>`);
@@ -669,24 +579,20 @@ class HQVSite {
     }
 
     setupInfohubScrolling() {
-        // Synchronized scrolling - infohub scrolls when user scrolls anywhere on page
         const infoColumn = document.querySelector('.info-column');
         if (!infoColumn) return;
 
         const videoContainer = document.querySelector('.hero-video-container');
         let overlay = null;
-        let wheelEventListeners = [];
 
         if (videoContainer) {
-            // Make sure the video container is relatively positioned
             if (getComputedStyle(videoContainer).position === 'static') {
                 videoContainer.style.position = 'relative';
             }
 
             function createOverlay() {
-                if (overlay) return; // Already exists
+                if (overlay) return;
 
-                // Create a transparent overlay over the video
                 overlay = document.createElement('div');
                 overlay.style.cssText = `
                     position: absolute;
@@ -699,27 +605,18 @@ class HQVSite {
                     background: transparent;
                 `;
                 overlay.className = 'video-scroll-overlay';
-
                 videoContainer.appendChild(overlay);
 
-                // Add wheel listener to the overlay
-                const wheelHandler = (event) => {
+                overlay.addEventListener('wheel', (event) => {
                     event.preventDefault();
-
-                    // Check if infohub has scrollable content
                     const infoScrollHeight = infoColumn.scrollHeight - infoColumn.clientHeight;
                     if (infoScrollHeight <= 0) return;
 
-                    // Scroll the infohub
                     const scrollAmount = event.deltaY;
                     const currentScrollTop = infoColumn.scrollTop;
                     const newScrollTop = Math.max(0, Math.min(currentScrollTop + scrollAmount, infoScrollHeight));
-
                     infoColumn.scrollTop = newScrollTop;
-                };
-
-                overlay.addEventListener('wheel', wheelHandler, { passive: false });
-                wheelEventListeners.push({ element: overlay, handler: wheelHandler });
+                }, { passive: false });
             }
 
             function removeOverlay() {
@@ -730,41 +627,27 @@ class HQVSite {
             }
 
             function updateOverlayVisibility() {
-                const isMobile = window.innerWidth <= 768;
-
-                if (isMobile) {
-                    removeOverlay();
-                } else {
-                    createOverlay();
-                }
+                window.innerWidth <= 768 ? removeOverlay() : createOverlay();
             }
 
-            // Initial setup
             updateOverlayVisibility();
-
-            // Listen for window resize to toggle overlay
             window.addEventListener('resize', updateOverlayVisibility);
         }
 
-        // Document wheel listener - also needs to be responsive
         let documentWheelHandler = null;
 
         function addDocumentWheelListener() {
-            if (documentWheelHandler) return; // Already added
+            if (documentWheelHandler) return;
 
             documentWheelHandler = (event) => {
                 const isOverInfohub = infoColumn.contains(event.target);
                 const isOverVideo = videoContainer && videoContainer.contains(event.target);
 
-                // Only handle if not over infohub (let infohub handle its own scrolling)
                 if (!isOverInfohub && !isOverVideo) {
                     event.preventDefault();
-
                     const infoScrollHeight = infoColumn.scrollHeight - infoColumn.clientHeight;
                     if (infoScrollHeight > 0) {
-                        const scrollAmount = event.deltaY;
-                        const currentScrollTop = infoColumn.scrollTop;
-                        const newScrollTop = Math.max(0, Math.min(currentScrollTop + scrollAmount, infoScrollHeight));
+                        const newScrollTop = Math.max(0, Math.min(infoColumn.scrollTop + event.deltaY, infoScrollHeight));
                         infoColumn.scrollTop = newScrollTop;
                     }
                 }
@@ -781,22 +664,12 @@ class HQVSite {
         }
 
         function updateDocumentWheelListener() {
-            const isMobile = window.innerWidth <= 768;
-
-            if (isMobile) {
-                removeDocumentWheelListener();
-            } else {
-                addDocumentWheelListener();
-            }
+            window.innerWidth <= 768 ? removeDocumentWheelListener() : addDocumentWheelListener();
         }
 
-        // Initial setup
         updateDocumentWheelListener();
-
-        // Listen for window resize to toggle document wheel listener
         window.addEventListener('resize', updateDocumentWheelListener);
 
-        // Remove smooth scroll behavior for immediate response
         infoColumn.style.scrollBehavior = 'auto';
     }
 
@@ -804,13 +677,10 @@ class HQVSite {
         const sponsorsTrack = document.querySelector('.sponsors-track');
         if (!sponsorsTrack) return;
 
-        // Ensure smooth animation by pausing and restarting when needed
         sponsorsTrack.addEventListener('animationiteration', () => {
-            // Reset transform to prevent accumulating transforms
             sponsorsTrack.style.transform = 'translateX(0)';
         });
 
-        // Add CSS to ensure smooth animation
         sponsorsTrack.style.willChange = 'transform';
         sponsorsTrack.style.backfaceVisibility = 'hidden';
         sponsorsTrack.style.perspective = '1000px';
@@ -818,22 +688,30 @@ class HQVSite {
 
     setupVideoMuteToggle() {
         const video = document.getElementById('hero-video');
+        if (!video) return;
+
+        // Always start the hero video from the beginning as soon as it can play,
+        // independent of the landing screen or any other UI state.
+        video.muted = true;
+        const startFromBeginning = () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        };
+        if (video.readyState >= 2) {
+            startFromBeginning();
+        } else {
+            video.addEventListener('loadeddata', startFromBeginning, { once: true });
+        }
+
         const muteToggle = document.getElementById('mute-toggle');
         const muteIcon = muteToggle?.querySelector('.mute-icon');
         const unmuteIcon = muteToggle?.querySelector('.unmute-icon');
-        const scrubber = document.getElementById('video-scrubber');
-        const playPauseBtn = document.getElementById('video-play-pause');
 
-        if (!video || !muteToggle) return;
+        if (!muteToggle) return;
 
-        // Start with video muted (default behavior)
-        video.muted = true;
-
-        // Toggle mute state
         muteToggle.addEventListener('click', () => {
             video.muted = !video.muted;
 
-            // Update icon visibility
             if (video.muted) {
                 muteIcon.style.display = 'none';
                 unmuteIcon.style.display = 'block';
@@ -842,97 +720,83 @@ class HQVSite {
                 unmuteIcon.style.display = 'none';
             }
 
-            // Track analytics
             Analytics.trackEvent('Video', video.muted ? 'Muted' : 'Unmuted');
         });
 
-        // Initialize icon state
         muteIcon.style.display = 'none';
         unmuteIcon.style.display = 'block';
 
-        // Play/Pause button
-        if (playPauseBtn) {
-            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
-            const playIcon = playPauseBtn.querySelector('.play-icon');
+        // Play/Pause toggle
+        const playPauseToggle = document.getElementById('play-pause-toggle');
+        const playIcon = playPauseToggle?.querySelector('.play-icon');
+        const pauseIcon = playPauseToggle?.querySelector('.pause-icon');
 
-            playPauseBtn.addEventListener('click', () => {
+        if (playPauseToggle && playIcon && pauseIcon) {
+            playPauseToggle.addEventListener('click', () => {
                 if (video.paused) {
-                    video.play();
-                    pauseIcon.style.display = 'block';
-                    playIcon.style.display = 'none';
-                    playPauseBtn.setAttribute('aria-label', 'Pause video');
+                    video.play().catch(() => {});
                 } else {
                     video.pause();
-                    pauseIcon.style.display = 'none';
-                    playIcon.style.display = 'block';
-                    playPauseBtn.setAttribute('aria-label', 'Play video');
                 }
+            });
+
+            video.addEventListener('play', () => {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            });
+
+            video.addEventListener('pause', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
             });
         }
 
-        // Scrubber — sync position as video plays
-        if (scrubber) {
+        // Playhead / progress bar
+        const progressBar = document.getElementById('video-progress-bar');
+        const progressFill = document.getElementById('video-progress-fill');
+
+        if (progressBar && progressFill) {
             video.addEventListener('timeupdate', () => {
                 if (video.duration) {
-                    scrubber.value = (video.currentTime / video.duration) * 100;
-                    // Update fill color to show progress
-                    const pct = scrubber.value;
-                    scrubber.style.background = `linear-gradient(to right, white ${pct}%, rgba(255,255,255,0.3) ${pct}%)`;
+                    progressFill.style.width = ((video.currentTime / video.duration) * 100) + '%';
                 }
             });
 
-            // Seek when user drags scrubber
-            scrubber.addEventListener('input', () => {
-                if (video.duration) {
-                    video.currentTime = (scrubber.value / 100) * video.duration;
-                }
+            progressBar.addEventListener('click', (e) => {
+                if (!video.duration) return;
+                const rect = progressBar.getBoundingClientRect();
+                video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
             });
         }
     }
-
 }
 
-// Analytics and tracking
+// Analytics
 class Analytics {
     static trackEvent(category, action, label = null) {
-        // Google Analytics 4 tracking
         if (typeof gtag !== 'undefined') {
-            gtag('event', action, {
-                event_category: category,
-                event_label: label
-            });
+            gtag('event', action, { event_category: category, event_label: label });
         }
-
-        // Alternative analytics tracking can be added here
         console.log(`Analytics: ${category} - ${action}${label ? ` - ${label}` : ''}`);
     }
 
     static trackPageView(page = null) {
         const currentPage = page || window.location.pathname;
-        
         if (typeof gtag !== 'undefined') {
-            gtag('config', 'GA_MEASUREMENT_ID', {
-                page_path: currentPage
-            });
+            gtag('config', 'GA_MEASUREMENT_ID', { page_path: currentPage });
         }
-
         console.log(`Page view: ${currentPage}`);
     }
 }
 
-// Smooth scroll for anchor links
+// Smooth scroll
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Track navigation events
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 Analytics.trackEvent('Navigation', 'Anchor Click', this.getAttribute('href'));
             }
         });
@@ -949,122 +813,118 @@ function setupPlatformTracking() {
     });
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Setup landing screen first
-    setupLandingScreen();
+// Beehiiv's loader script injects an iframe with its own inline styles,
+// which can include an inline !important margin/width that no stylesheet
+// rule can override (inline author styles win cascade ties even against
+// !important elsewhere). Force-center the iframe via a direct DOM write
+// once it appears — a later same-priority inline write simply overwrites
+// Beehiiv's own, so this wins regardless of what they set.
+function setupBeehiivCentering() {
+    const centerEmbed = (container) => {
+        const iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        iframe.style.setProperty('margin-left', 'auto', 'important');
+        iframe.style.setProperty('margin-right', 'auto', 'important');
+        iframe.style.setProperty('display', 'block', 'important');
+    };
 
-    // Initialize main site functionality
-    window.hqvSite = new HQVSite();
-
-    // Setup additional features
-    setupSmoothScroll();
-    setupPlatformTracking();
-
-    // Track initial page view
-    Analytics.trackPageView();
-
-    // Add CSS variable for accent color from config
-    setTimeout(() => {
-        if (window.hqvSite?.config?.accent_color) {
-            document.documentElement.style.setProperty('--accent-color', window.hqvSite.config.accent_color);
-        }
-    }, 100);
-});
-
-// Service Worker registration removed to eliminate 404 errors
-// Can be re-enabled when sw.js file is created
-
-// Newsletter subscription function
-function subscribeToNewsletter() {
-    const emailInput = document.getElementById('newsletter-email');
-    const email = emailInput.value.trim();
-
-    if (!email) {
-        alert('Please enter your email address');
-        return;
-    }
-
-    if (!email.includes('@')) {
-        alert('Please enter a valid email address');
-        return;
-    }
-
-    // Open beehiiv subscription page with email pre-filled if possible
-    const subscribeUrl = `https://in-competence-we-trust.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
-    window.open(subscribeUrl, '_blank');
-
-    // Clear the input
-    emailInput.value = '';
-
-    // Track subscription attempt
-    Analytics.trackEvent('Newsletter', 'Subscribe Attempt', email);
+    document.querySelectorAll('.newsletter-embed-container').forEach((container) => {
+        centerEmbed(container);
+        const observer = new MutationObserver(() => centerEmbed(container));
+        observer.observe(container, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+    });
 }
 
-// Landing Screen functionality
+// Landing Screen
 function setupLandingScreen() {
     const landingScreen = document.getElementById('landing-screen');
     const skipBtn = document.getElementById('already-subscribed-btn');
 
     if (!landingScreen) return;
 
-    // Check if user has seen the landing screen before
-    const hasSeenLandingScreen = localStorage.getItem('hasSeenLandingScreen');
+    const readStorage = (key) => {
+        try {
+            return localStorage.getItem(key);
+        } catch (error) {
+            return null;
+        }
+    };
 
-    // Check if user came from an external site (not navigating within the site)
+    const writeStorage = (key, value) => {
+        try {
+            localStorage.setItem(key, value);
+        } catch (error) {
+            // Storage unavailable (private browsing, etc.) — safe to ignore.
+        }
+    };
+
+    const hasSeenLandingScreen = readStorage('hasSeenLandingScreen');
     const referrer = document.referrer;
     const currentDomain = window.location.hostname;
     const isExternalVisit = !referrer || !referrer.includes(currentDomain);
 
-    // Only show landing screen on first visit OR when coming from external site
     if (hasSeenLandingScreen && !isExternalVisit) {
         landingScreen.classList.add('hidden');
-
-        // Start the video playing if landing screen is not shown
-        const heroVideo = document.getElementById('hero-video');
-        if (heroVideo) {
-            heroVideo.play().catch(error => {
-                console.log('Video autoplay prevented:', error);
-            });
-        }
         return;
     }
 
-    // Function to hide landing screen and mark as seen
+    let hideCalled = false;
     function hideLandingScreen() {
+        if (hideCalled) return;
+        hideCalled = true;
         landingScreen.classList.add('hidden');
-        localStorage.setItem('hasSeenLandingScreen', 'true');
+        writeStorage('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
-
-        // Start the hero video playing after landing screen is dismissed
-        const heroVideo = document.getElementById('hero-video');
-        if (heroVideo) {
-            heroVideo.play().catch(error => {
-                console.log('Video autoplay prevented:', error);
-            });
-        }
     }
 
-    // Skip button handler
     if (skipBtn) {
         skipBtn.addEventListener('click', hideLandingScreen);
     }
 
-    // Optional: Auto-hide after successful subscription
-    // Listen for beehiiv form submission events if available
-    const beehiivIframe = landingScreen.querySelector('.beehiiv-embed');
-    if (beehiivIframe) {
-        // Monitor for beehiiv success events
-        window.addEventListener('message', (event) => {
-            // Check if message is from beehiiv and indicates success
-            if (event.data && typeof event.data === 'string' && event.data.includes('success')) {
-                setTimeout(hideLandingScreen, 1500); // Delay to show success message
-            }
-        });
-    }
+    // Listen for Beehiiv subscription success postMessage
+    window.addEventListener('message', (event) => {
+        if (landingScreen.classList.contains('hidden')) return;
+        const data = event.data;
+        const isSuccess =
+            (typeof data === 'string' && (data.includes('success') || data.includes('subscribe'))) ||
+            (data !== null && typeof data === 'object' && (
+                (typeof data.type === 'string' && (
+                    data.type.includes('success') ||
+                    data.type.includes('subscribe')
+                )) ||
+                data.status === 'success' ||
+                data.subscribed === true
+            ));
+        if (isSuccess) {
+            setTimeout(hideLandingScreen, 1500);
+        }
+    });
 }
 
-// Export for use in other scripts if needed
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        setupLandingScreen();
+    } catch (error) {
+        console.error('Error setting up landing screen:', error);
+    }
+    try {
+        setupBeehiivCentering();
+    } catch (error) {
+        console.error('Error setting up Beehiiv centering:', error);
+    }
+    window.hqcSite = new HQCSite();
+    setupSmoothScroll();
+    setupPlatformTracking();
+    Analytics.trackPageView();
+
+    setTimeout(() => {
+        if (window.hqcSite?.config?.accent_color) {
+            document.documentElement.style.setProperty('--accent-color', window.hqcSite.config.accent_color);
+        }
+    }, 100);
+});
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { HQVSite, Analytics };
+    module.exports = { HQCSite, Analytics };
 }
