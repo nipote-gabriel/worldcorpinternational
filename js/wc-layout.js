@@ -162,6 +162,16 @@
                         '</ul></div>' +
                     '</div>' +
                 '</div>' +
+                '<svg class="footer-mark" viewBox="0 -74 612 76" aria-hidden="true" focusable="false">' +
+                    '<defs><linearGradient id="footer-mark-fade" gradientUnits="userSpaceOnUse" x1="0" y1="-74" x2="0" y2="2"><stop offset="0" stop-color="#2e2e2e"/><stop offset="1" stop-color="#111"/></linearGradient></defs>' +
+                    '<g fill="url(#footer-mark-fade)" stroke="url(#footer-mark-fade)">' +
+                        '<text x="0" y="0" stroke="none">W</text>' +
+                        '<circle cx="139" cy="-36" r="30.75" fill="none" stroke-width="12.5"/>' +
+                        '<ellipse cx="139" cy="-36" rx="14.76" ry="30.75" fill="none" stroke-width="6.88"/>' +
+                        '<line x1="108.25" y1="-36" x2="169.75" y2="-36" stroke-width="6.88"/>' +
+                        '<text x="176" y="0" stroke="none">RLDCORP</text>' +
+                    '</g>' +
+                '</svg>' +
                 '<div class="footer-bottom">' +
                     '<span>&copy; ' + new Date().getFullYear() + ' WorldCorp International. A subsidiary of <a href="' + WC.links.hq + '" target="_blank" rel="noopener">Headquarters Comedy</a>.</span>' +
                     '<span>Committed to simplifying the state of the world.</span>' +

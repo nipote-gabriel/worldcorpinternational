@@ -1472,10 +1472,23 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .footer-social a:hover { background: #fff; color: #111; border-color: #fff; }
 .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
 
+.footer-mark {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: clamp(64px, 9vw, 128px);
+    overflow: visible;
+    font-family: inherit;
+    font-size: 100px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    user-select: none;
+}
+
 .footer-bottom {
-    margin-top: 72px;
+    margin-top: clamp(28px, 3vw, 44px);
     padding-top: 26px;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     flex-wrap: wrap;
     gap: 10px 30px;
