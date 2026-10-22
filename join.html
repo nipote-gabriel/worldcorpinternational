@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join us | WorldCorp International</title>
+    <meta name="description" content="Membership of WorldCorp International is open to organizations of every size, for now.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://worldcorpinternational.com/join">
+    <meta property="og:title" content="Join us | WorldCorp International">
+    <meta property="og:description" content="Membership of WorldCorp International is open to organizations of every size, for now.">
+    <meta property="og:image" content="https://worldcorpinternational.com/assets/img/centre-new-economy.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#F8F7F4">
+
+    <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/wc.css">
+    <script src="js/wc-data.js"></script>
+</head>
+<body data-page="join">
+<script src="js/wc-layout.js" data-part="header"></script>
+
+<main id="main">
+    <section class="wrap page-hero">
+        <p class="kicker">Join us</p>
+        <h1 class="display">Membership is open to organizations of every size, for now</h1>
+        <p class="lead">Join more than 1,000 partner companies working together toward a future with fewer partner companies.</p>
+    </section>
+
+    <section class="section-tight" style="padding-bottom:112px" aria-labelledby="tiers-title">
+        <div class="wrap">
+            <h2 class="h2" id="tiers-title">Ways to engage</h2>
+            <div class="tier-grid">
+                <article class="tier">
+                    <h3 class="tier-name">Observer</h3>
+                    <p class="tier-for">For members of the public</p>
+                    <ul><li>Weekly newsletter</li><li>Access to published outcomes</li><li>Annual group photograph</li></ul>
+                    <p class="tier-cap">Observers are kept informed.</p>
+                </article>
+                <article class="tier">
+                    <h3 class="tier-name">Associate</h3>
+                    <p class="tier-for">For growing companies</p>
+                    <ul><li>Centre briefings</li><li>Regional meetings</li><li>Introductions to potential acquirers</li></ul>
+                    <p class="tier-cap">Most Associates go on to become part of a Partner.</p>
+                </article>
+                <article class="tier is-featured">
+                    <h3 class="tier-name">Partner</h3>
+                    <p class="tier-for">For established global companies</p>
+                    <ul><li>Annual Meeting invitation</li><li>Seat on a Centre steering board</li><li>Report review rights</li><li>Introductions to potential acquisitions</li></ul>
+                    <p class="tier-cap">Our most popular tier among our most popular companies.</p>
+                </article>
+                <article class="tier">
+                    <h3 class="tier-name">Strategic Partner</h3>
+                    <p class="tier-for">For the few</p>
+                    <ul><li>Everything in Partner</li><li>Agenda-setting</li><li>Naming rights to one Centre</li><li>The final say</li></ul>
+                    <p class="tier-cap">By invitation. Availability is decreasing by design.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="contact" aria-labelledby="contact-title" style="scroll-margin-top:var(--header-h)">
+        <div class="wrap join-layout">
+            <div>
+                <h2 class="h1" id="contact-title">Get in touch</h2>
+                <p class="lead" style="margin-top:22px">Tell us about your organization. A member of our partnerships team will be in touch to discuss how we can grow together.</p>
+                <div class="contact-lines">
+                    <p><span>Email</span><a href="mailto:gabe@headquarterscomedy.com">gabe@headquarterscomedy.com</a></p>
+                    <p><span>Newsletter</span><a href="https://incompetencewetrust.beehiiv.com/" target="_blank" rel="noopener">In Competence We Trust</a></p>
+                    <p><span>Headquarters</span><a href="https://www.headquarterscomedy.com" target="_blank" rel="noopener">headquarterscomedy.com</a></p>
+                </div>
+            </div>
+            <form class="form-grid" data-join-form novalidate>
+                <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+                <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+                <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" autocomplete="organization"></div>
+                <div class="field"><label for="f-size">Organization size</label>
+                    <select id="f-size" name="size">
+                        <option>1&ndash;50 employees</option>
+                        <option>51&ndash;1,000 employees</option>
+                        <option>1,001&ndash;50,000 employees</option>
+                        <option>More than 50,000 employees</option>
+                        <option>A country</option>
+                    </select>
+                </div>
+                <div class="field span-2"><label for="f-msg">How would you like to work together?</label><textarea id="f-msg" name="message" rows="5"></textarea></div>
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <div class="form-actions span-2">
+                    <button class="pill pill-dark" type="submit">Submit enquiry</button>
+                    <p class="form-note" data-join-note hidden></p>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="js/wc-layout.js" data-part="footer"></script>
+<script src="js/wc.js"></script>
+</body>
+</html>

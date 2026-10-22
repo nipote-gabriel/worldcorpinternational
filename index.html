@@ -3,513 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorldCorp International</title>
-    <meta name="description" content="WorldCorp International">
-    <meta name="keywords" content="comedy, stand-up, sketch, improv, funny, entertainment">
+    <title>WorldCorp International | It's a small world. Let's consolidate it, together.</title>
+    <meta name="description" content="WorldCorp International is the International Organization for Public-Private Consolidation. It's a small world. Let's consolidate it, together.">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://worldcorpinternational.com/">
     <meta property="og:title" content="WorldCorp International">
-    <meta property="og:description" content="WorldCorp International">
+    <meta property="og:description" content="It's a small world. Let's consolidate it, together.">
+    <meta property="og:image" content="https://worldcorpinternational.com/assets/img/hero-plenary.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://worldcorpinternational.com/">
-    <meta property="twitter:title" content="WorldCorp International">
-    <meta property="twitter:description" content="WorldCorp International">
-
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#F8F7F4">
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="home.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://subscribe-forms.beehiiv.com">
-    <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/wc.css">
+    <script src="js/wc-data.js"></script>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <a href="#top" class="brand-link">
-                    <img src="graphic assets/worldcorp-icon.png" alt="WorldCorp International" class="brand-icon" width="32" height="32">
-                    <h1 class="brand-title">WorldCorp International</h1>
+<body data-page="home">
+<script src="js/wc-layout.js" data-part="header"></script>
+
+<main id="main">
+
+    <!-- Hero -->
+    <section aria-label="Opening plenary">
+        <div class="hero-media">
+            <img src="assets/img/hero-plenary.jpg" alt="A speaker addresses delegates at the Opening Plenary of the Annual Meeting" fetchpriority="high">
+            <a class="hero-caption" href="events.html">
+                <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M11 7l17 10-17 10z"/></svg>
+                Opening Plenary, Annual Meeting 2026
+            </a>
+        </div>
+        <div class="blue-block">
+            <div class="wrap">
+                <h1 class="display">It's a small world. Let's consolidate it, together.</h1>
+                <a class="more-link" href="about.html">More about WorldCorp <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How we drive efficiency -->
+    <section class="section" aria-labelledby="impact-title">
+        <div class="wrap">
+            <h2 class="h1" id="impact-title">How we drive efficiency</h2>
+            <div class="segmented" role="tablist" aria-label="How we drive efficiency">
+                <button type="button" role="tab" id="tab-centres" aria-controls="panel-centres" aria-selected="true">Centres</button>
+                <button type="button" role="tab" id="tab-meetings" aria-controls="panel-meetings" aria-selected="false" tabindex="-1">Meetings</button>
+                <button type="button" role="tab" id="tab-stakeholders" aria-controls="panel-stakeholders" aria-selected="false" tabindex="-1">Stakeholders</button>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="panel-centres" role="tabpanel" aria-labelledby="tab-centres">
+            <div class="wrap tab-intro">
+                <div>
+                    <h3 class="h2">We streamline global challenges through our 9 Centres</h3>
+                    <a class="more-link" href="centres.html">More about our Centres <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+                </div>
+                <p class="lead">Our Centre teams convert ambition into a single, unified action through structured initiatives and consolidated insight.</p>
+            </div>
+            <div class="carousel" data-carousel>
+                <div class="carousel-track" data-render="centre-carousel"></div>
+                <div class="wrap carousel-controls">
+                    <div class="carousel-dots"></div>
+                    <div class="carousel-arrows">
+                        <button type="button" data-prev aria-label="Previous"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M13 2L2 14l11 12"/></svg></button>
+                        <button type="button" data-next aria-label="Next"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M2 2l11 12L2 26"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="panel-meetings" role="tabpanel" aria-labelledby="tab-meetings" hidden>
+            <div class="wrap tab-intro">
+                <div>
+                    <h3 class="h2">We convene the people who should be in the room, and only them</h3>
+                    <a class="more-link" href="events.html">See all events <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+                </div>
+                <p class="lead">Our meetings bring leaders from business, government and civil society together to agree on the agenda in advance.</p>
+            </div>
+            <div class="carousel" data-carousel>
+                <div class="carousel-track">
+                    <a class="centre-card no-image tint-blue" href="events.html">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Annual Meeting 2027</h4><p class="centre-card-sub">18&ndash;22 January 2027 &middot; Vaduz, Liechtenstein</p></div>
+                    </a>
+                    <a class="centre-card no-image tint-violet" href="article.html?s=country-strategy-meeting-benelux">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Country Strategy Meeting on the Benelux</h4><p class="centre-card-sub">November 2026 &middot; Vaduz, Liechtenstein</p></div>
+                    </a>
+                    <a class="centre-card no-image tint-teal" href="events.html#more-events">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Annual Meeting of the New Champions (Merged)</h4><p class="centre-card-sub">June 2027 &middot; Singapore</p></div>
+                    </a>
+                    <a class="centre-card no-image tint-indigo" href="events.html#more-events">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Sustainable Consolidation Impact Meetings</h4><p class="centre-card-sub">September 2026 &middot; New York</p></div>
+                    </a>
+                </div>
+                <div class="wrap carousel-controls">
+                    <div class="carousel-dots"></div>
+                    <div class="carousel-arrows">
+                        <button type="button" data-prev aria-label="Previous"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M13 2L2 14l11 12"/></svg></button>
+                        <button type="button" data-next aria-label="Next"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M2 2l11 12L2 26"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="panel-stakeholders" role="tabpanel" aria-labelledby="tab-stakeholders" hidden>
+            <div class="wrap tab-intro">
+                <div>
+                    <h3 class="h2">We work with every stakeholder, until there is only one</h3>
+                    <a class="more-link" href="join.html">Become a member <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+                </div>
+                <p class="lead">Business, government, civil society and the public each have a role to play. We help them play it together.</p>
+            </div>
+            <div class="carousel" data-carousel>
+                <div class="carousel-track">
+                    <a class="centre-card tint-teal" href="join.html">
+                        <img src="assets/img/centre-new-economy.jpg" alt="" loading="lazy">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Business</h4><p class="centre-card-sub">More than 1,000 member companies, down from 1,400 at our founding.</p></div>
+                    </a>
+                    <a class="centre-card tint-ember" href="about.html#partners">
+                        <img src="assets/img/centre-cities.jpg" alt="" loading="lazy">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Governments</h4><p class="centre-card-sub">Heads of state from 120 countries, and counting down.</p></div>
+                    </a>
+                    <a class="centre-card no-image tint-forest" href="join.html">
+                        <div class="centre-card-body"><h4 class="centre-card-title">Civil Society</h4><p class="centre-card-sub">Non-governmental organizations, represented by one non-governmental organization.</p></div>
+                    </a>
+                    <a class="centre-card tint-slate" href="join.html#contact">
+                        <img src="assets/img/centre-workforce.jpg" alt="" loading="lazy">
+                        <div class="centre-card-body"><h4 class="centre-card-title">The Public</h4><p class="centre-card-sub">Observer status. Updates are shared once decisions are final.</p></div>
+                    </a>
+                </div>
+                <div class="wrap carousel-controls">
+                    <div class="carousel-dots"></div>
+                    <div class="carousel-arrows">
+                        <button type="button" data-prev aria-label="Previous"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M13 2L2 14l11 12"/></svg></button>
+                        <button type="button" data-next aria-label="Next"><svg viewBox="0 0 15 28" aria-hidden="true"><path class="chevron" d="M2 2l11 12L2 26"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spotlight -->
+    <section class="section rule-top" aria-labelledby="spotlight-title">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="h1" id="spotlight-title">Spotlight</h2>
+                <p class="lead">Latest analysis, insights and explainers from across WorldCorp</p>
+                <a class="more-link" href="stories.html">More stories <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+            </div>
+            <div class="story-grid" data-render="spotlight"></div>
+        </div>
+    </section>
+
+    <!-- Topic -->
+    <section class="section-tight" style="padding-bottom:112px" aria-labelledby="topic-title">
+        <div class="wrap">
+            <div class="topic-head">
+                <h2 class="h2" id="topic-title">Work and Wellbeing</h2>
+                <a href="stories.html">View more</a>
+            </div>
+            <div class="topic-row">
+                <a class="text-card" href="article.html?s=sleep-review-consultation">
+                    <p class="text-card-title">Is eight hours of sleep still the right number? We're asking the question so you don't have to</p>
+                    <p class="text-card-type">Article</p>
+                </a>
+                <a class="story-card" href="article.html?s=four-day-to-seven-day-week">
+                    <div class="story-media"><img src="assets/img/story-workweek.jpg" alt="" loading="lazy"></div>
+                    <p class="kicker">Workforce</p>
+                    <h3 class="story-title">5 ways the four-day work week can become a seven-day work week</h3>
                 </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#tickets" class="nav-link">Tickets</a></li>
-                <li><a href="#book" class="nav-link">Book a Show</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="https://incompetencewetrust.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a>
-                <a href="https://www.headquarterscomedy.com" target="_blank" class="nav-cta">Live Shows</a>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-panel">
-            <div class="mobile-menu-header">
-                <h3 class="mobile-menu-title">Menu</h3>
-                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#tickets" class="nav-link">Tickets</a></li>
-                <li><a href="#book" class="nav-link">Book a Show</a></li>
-                <li><a href="https://incompetencewetrust.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
-                <li><a href="https://www.headquarterscomedy.com" target="_blank" class="nav-cta">Live Shows</a></li>
-            </ul>
         </div>
-    </div>
+    </section>
 
-    <main class="main-content" id="top">
-        <!-- Full-Screen Hero (pinned in place while the page scrolls) -->
-        <section class="hero-fullscreen">
-            <video
-                id="hero-video"
-                class="hero-bg-video"
-                muted
-                loop
-                playsinline
-                webkit-playsinline
-                autoplay
-                preload="auto">
-                <source src="video%20assets/hero-web-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
-                <source src="video%20assets/hero-web.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-video-scrim"></div>
-
-            <button id="mute-toggle" class="mute-toggle-btn" aria-label="Toggle Mute">
-                <svg class="mute-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
-                <svg class="unmute-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-                </svg>
-            </button>
-            <button id="play-pause-toggle" class="play-pause-btn" aria-label="Play/Pause">
-                <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-                <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                </svg>
-            </button>
-            <div class="video-progress-bar" id="video-progress-bar">
-                <div class="video-progress-fill" id="video-progress-fill"></div>
+    <!-- Annual Meeting promo -->
+    <section class="facet-bg event-promo" aria-labelledby="am-title">
+        <span class="facet-extra" aria-hidden="true"></span>
+        <div class="wrap event-promo-grid">
+            <div>
+                <p style="font-size:1.25rem;font-weight:500">Annual Meeting 2027</p>
+                <h2 class="event-title" id="am-title" style="margin-top:14px">One Shared Future</h2>
+                <p class="event-meta">18 &ndash; 22 Jan 2027<br>Vaduz, Liechtenstein</p>
             </div>
-        </section>
-
-        <!-- Reserves one viewport of scroll before the overlay rises over the hero -->
-        <div class="hero-scroll-spacer" aria-hidden="true"></div>
-
-        <!-- Everything below rises over the pinned hero -->
-        <div class="home-sections">
-
-            <!-- ===================== ABOUT ===================== -->
-            <section id="about" class="home-section">
-                    <!-- Hero -->
-                    <section class="pitch-hero">
-                        <div class="container">
-                            <h1>We make funny things.</h1>
-                        </div>
-                    </section>
-
-                    <!-- WorldCorp Universe -->
-                    <section class="pitch-section">
-                        <div class="container split-section">
-                            <div class="split-label">
-                                <h2>WorldCorp Universe</h2>
-                            </div>
-                            <div class="split-content">
-                                <p class="pitch-body">WorldCorp International is an industrial manufacturer of humor, based in New York City.</p>
-                                <p class="pitch-body">In addition to our own live shows and projects, WorldCorp helps brands &amp; people bring humor and memorability into their content, events, speeches, and presentations.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- IP & Projects -->
-                    <section class="pitch-section alt projects-section">
-                        <div class="container split-section">
-                            <div class="split-label">
-                                <h2>Projects</h2>
-                            </div>
-                            <div class="split-content">
-                                <div class="portfolio-grid" id="hq-universe-grid" style="margin-bottom: 0;">
-                                    <!-- Panic News Network -->
-                                    <a class="portfolio-item active" data-category="active" href="https://www.panicnewsnetwork.com" target="_blank" rel="noopener">
-                                        <div class="portfolio-logo">
-                                            <img src="graphic assets/HQ Universe Logos/panic-news-logo.png" alt="Panic News Network" class="portfolio-logo-img">
-                                        </div>
-                                        <div class="portfolio-info">
-                                            <h3 class="company-name">Panic News Network</h3>
-                                            <p class="company-description">
-                                                Breaking news, breaking constantly. We get you the news so fast, we're not sure if it's accurate. All of our headlines are satirical, but somehow it feels like you learn more from reading our news than the real news. Fake news, real insight.
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <!-- The Gary Luna Show -->
-                                    <a class="portfolio-item active" data-category="active" href="https://www.instagram.com/thegarylunashow/" target="_blank" rel="noopener">
-                                        <div class="portfolio-logo">
-                                            <img src="graphic assets/HQ Universe Logos/gary-luna-logo.jpg" alt="The Gary Luna Show" class="portfolio-logo-img">
-                                        </div>
-                                        <div class="portfolio-info">
-                                            <h3 class="company-name">The Gary Luna Show</h3>
-                                            <p class="company-description">
-                                                An experimental, animated late night talk show featuring cameos from celebrity guests, discussing culture and current events.
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <!-- In Competence We Trust -->
-                                    <a class="portfolio-item active" data-category="active" href="https://incompetencewetrust.beehiiv.com/" target="_blank" rel="noopener">
-                                        <div class="portfolio-logo">
-                                            <img src="graphic assets/HQ Universe Logos/icwt-red-rectangle.png" alt="In Competence We Trust" class="portfolio-logo-img">
-                                        </div>
-                                        <div class="portfolio-info">
-                                            <h3 class="company-name">In Competence We Trust</h3>
-                                            <p class="company-description">
-                                                Join our mailing list and receive our weekly newsletter, In Competence We Trust, about humor, persuasion, public speaking, and the apocalypse.
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <!-- Headquarters Comedy -->
-                                    <a class="portfolio-item active" data-category="active" href="https://www.headquarterscomedy.com" target="_blank" rel="noopener">
-                                        <div class="portfolio-logo">
-                                            <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png" alt="Headquarters Comedy" class="portfolio-logo-img">
-                                        </div>
-                                        <div class="portfolio-info">
-                                            <h3 class="company-name">Headquarters Comedy</h3>
-                                            <p class="company-description">
-                                                Headquarters Comedy produces live standup across New York City, featuring some of the best working comics in the scene today. Our pop-up shows always sell out.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <!-- Backed by the best (concept ventures) -->
-                                <div class="concept-ventures">
-                                    <h3 class="concept-ventures-title">Backed by the best</h3>
-                                    <ul class="concept-ventures-grid">
-                                        <li><img src="graphic assets/Concept Ventures/altman-behr-defense.jpg" alt="Altman Behr Defense" loading="lazy" width="600" height="360"></li>
-                                        <li><img src="graphic assets/Concept Ventures/dongvape.jpg" alt="DongVape" loading="lazy" width="600" height="360"></li>
-                                        <li><img src="graphic assets/Concept Ventures/gorman-pharmaceuticals.jpg" alt="Gorman Pharmaceuticals" loading="lazy" width="600" height="360"></li>
-                                        <li><img src="graphic assets/Concept Ventures/munro-cigarettes.jpg" alt="Munro Cigarettes" loading="lazy" width="600" height="360"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Backstory -->
-                    <section class="pitch-section">
-                        <div class="container split-section">
-                            <div class="split-label">
-                                <h2>Backstory</h2>
-                            </div>
-                            <div class="split-content">
-                                <p class="pitch-body">WorldCorp International was started by Gabe Nipote, a comedian &amp; entrepreneur based in New York City.</p>
-                                <p class="pitch-body">Prior to WorldCorp, Gabe had a software company called Halla, which was acquired by Instacart in 2025. Now, you can find Gabe as a regular at The Buddha Room, or performing standup at other venues all over New York City, such as New York Comedy Club, The Stand, Flop House, and more.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Final CTA -->
-                    <section class="pitch-final-cta">
-                        <div class="container">
-                            <h2>Want to work with us?</h2>
-                            <div class="pitch-final-cta-actions">
-                                <a href="get-in-touch.html" class="pitch-btn ghost">Explore Partnerships</a>
-                            </div>
-                        </div>
-                    </section>
-
-            </section>
-
-            <!-- ===================== TICKETS ===================== -->
-            <section id="tickets" class="home-section">
-                    <!-- Photo 1 -->
-                    <div class="photo-section photo-section-img">
-                        <img src="graphic assets/Web/live-show-1.jpg" alt="HQ Show live comedy" style="object-position: center bottom;">
-                        <div class="photo-section-overlay"></div>
-                        <div class="photo-caption">
-                            <div class="container">
-                                <h1>Live Shows</h1>
-                                <p>Come see WorldCorp International in real life. We produce the funnest pop-up shows in NYC, featuring some of the most talented up and coming comics in the world. Our shows always sell out, so make sure to join our mailing list and grab tickets when they drop.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="photo-section-spacer"></div>
-
-                    <!-- Next Show -->
-                    <section class="shows-section">
-                        <div class="container">
-                            <div class="show-card show-card-with-signup" id="newsletter">
-                                <!-- Newsletter Signup -->
-                                <div class="show-card-signup">
-                                    <div class="show-card-signup-text">
-                                        <h2>Never miss a show.</h2>
-                                        <p>Subscribe and be the first to know about our shows before tickets sell out.</p>
-                                    </div>
-                                    <div class="newsletter-embed-container" id="beehiiv-embed-target"></div>
-                                    <script>
-                                        (function () {
-                                            var target = document.getElementById('beehiiv-embed-target');
-                                            if (!target) return;
-                                            function load() {
-                                                if (target.dataset.loaded) return;
-                                                target.dataset.loaded = 'true';
-                                                var script = document.createElement('script');
-                                                script.async = true;
-                                                script.fetchPriority = 'high';
-                                                script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-                                                script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
-                                                target.appendChild(script);
-                                            }
-                                            if ('IntersectionObserver' in window) {
-                                                var observer = new IntersectionObserver(function (entries) {
-                                                    if (entries[0].isIntersecting) {
-                                                        load();
-                                                        observer.disconnect();
-                                                    }
-                                                }, { rootMargin: '600px' });
-                                                observer.observe(target);
-                                            } else {
-                                                load();
-                                            }
-                                        })();
-                                    </script>
-                                </div>
-                                <div class="show-card-left">
-                                    <div class="show-date-block">
-                                        <div class="show-date-month">Oct</div>
-                                        <div class="show-date-day">13</div>
-                                        <div class="show-date-year">2026</div>
-                                    </div>
-                                    <div class="show-info">
-                                        <span class="show-info-badge">Next Show</span>
-                                        <h3>Flop House<br>Williamsburg, Brooklyn</h3>
-                                        <p class="show-venue">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                            8:00 PM
-                                        </p>
-                                        <div class="show-tags">
-                                            <span class="show-tag">Stand-Up</span>
-                                            <span class="show-tag">Live Comedy</span>
-                                            <span class="show-tag">New York</span>
-                                        </div>
-                                    </div>
-                                    <div class="show-action">
-                                        <a href="https://flophousecomedy.com/show/c706a923-9be8-4c29-ad92-c18a44f94cb4" target="_blank">
-                                            Tickets
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Photo 2 -->
-                    <div class="photo-section" style="background-image: url('graphic%20assets/Web/live-show-2.jpg'); background-position: center center;">
-                        <div class="photo-section-overlay"></div>
-                    </div>
-
-
-
-            </section>
-
-            <!-- ===================== BOOK A SHOW ===================== -->
-            <section id="book" class="home-section">
-                    <!-- Page Header -->
-                    <section class="pitch-hero">
-                        <div class="container">
-                            <h1>Make your event memorable.</h1>
-                        </div>
-                    </section>
-
-                    <section class="pitch-section">
-                        <div class="container pitch-section-inner">
-
-                            <!-- What We Offer -->
-                            <span class="pitch-eyebrow">What We Offer</span>
-                            <h2 class="pitch-heading">Events people want to attend.</h2>
-                            <div class="offer-grid">
-                                <div class="offer-card">
-                                    <div class="offer-card-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                            <circle cx="9" cy="7" r="4"/>
-                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                        </svg>
-                                    </div>
-                                    <h3>Shows for Teams</h3>
-                                    <p>Corporate shows suck. We've re-designed them for startups. Perfect for teams up to 100, with good culture. Our shows leave your team more tightly knit and help blow off steam so you can get back to your 9-9-6.</p>
-                                </div>
-                                <div class="offer-card">
-                                    <div class="offer-card-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M3 11l18-5v12L3 14v-3z"/>
-                                            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
-                                        </svg>
-                                    </div>
-                                    <h3>Shows for Brands</h3>
-                                    <p>Sponsor one of our public shows and get your brand in front of a smart, engaged audience that actually shows up to things. Tasteful, effective, not embarrassing. We capture valuable content of people engaging with your brand in real life.</p>
-                                </div>
-                                <div class="offer-card">
-                                    <div class="offer-card-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="3" y="8" width="18" height="4"/>
-                                            <path d="M12 8v13"/>
-                                            <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
-                                            <path d="M7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8s3-5 4.5-5a2.5 2.5 0 0 1 0 5"/>
-                                        </svg>
-                                    </div>
-                                    <h3>Private Shows</h3>
-                                    <p>Birthday? Launch event? Fundraiser? Anniversary? Whatever you need, we can put it together. We'll source the venue, book the talent, capture content, and leave your audience laughing. We can roast, keep it clean, or do anything in between.</p>
-                                </div>
-                            </div>
-
-                            <!-- How It Works -->
-                            <div class="process-section">
-                                <span class="pitch-eyebrow">The Process</span>
-                                <h2 class="pitch-heading">How it works.</h2>
-                                <div class="process-steps">
-                                    <div class="process-step">
-                                        <div class="step-number">1</div>
-                                        <h4>Tell Us What You Need</h4>
-                                        <p>Send us an email with your event goals, audience, date range, and budget. The more detail the better.</p>
-                                    </div>
-                                    <div class="process-step">
-                                        <div class="step-number">2</div>
-                                        <h4>We Put Together a Proposal</h4>
-                                        <p>We'll come back with a format recommendation, lineup concept, and pricing. Usually within a few days.</p>
-                                    </div>
-                                    <div class="process-step">
-                                        <div class="step-number">3</div>
-                                        <h4>We Handle the Rest</h4>
-                                        <p>Once we're aligned, we take it from there. You show up, enjoy the show, take the credit.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-
-                    <!-- CTA Band -->
-                    <section class="cta-band">
-                        <div class="container">
-                            <h2>Ready to host a memorable event?</h2>
-                            <a href="get-in-touch.html" class="cta-band-btn">
-                                Get in Touch
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <path d="M5 12h14M13 6l6 6-6 6"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </section>
-
-            </section>
-
-                    <!-- Connect and Follow -->
-            <section class="connect-overlay">
-                <div class="connect-label">Connect and Follow</div>
-                <div class="connect-icons">
-                    <a href="https://incompetencewetrust.beehiiv.com/" target="_blank" class="platform-btn newsletter" data-platform="newsletter" aria-label="Newsletter">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank" class="platform-btn linkedin" data-platform="linkedin" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/headquarterscomedy/" target="_blank" class="platform-btn instagram" data-platform="instagram" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@headquarterscomedy" target="_blank" class="platform-btn tiktok" data-platform="tiktok" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw" target="_blank" class="platform-btn youtube" data-platform="youtube" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                    <a href="https://x.com/hq_comedy" target="_blank" class="platform-btn twitter" data-platform="x" aria-label="X (Twitter)">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.80l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="connect-logo">
-                    <img src="graphic assets/worldcorp-icon.png" alt="WorldCorp International" class="connect-logo-img" style="width:140px; height:auto; margin:0 auto;">
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                                <div class="footer-brand">
-                    <h3>WorldCorp International</h3>
-                    <p>Funny, at scale.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Content</h4>
-                        <ul>
-                            <li><a href="https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw" target="_blank" id="footer-youtube">YouTube</a></li>
-                            <li><a href="https://www.instagram.com/headquarterscomedy/" target="_blank" id="footer-instagram">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@headquarterscomedy" target="_blank" id="footer-tiktok">TikTok</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-group">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="https://incompetencewetrust.beehiiv.com/" target="_blank" id="footer-newsletter">Newsletter</a></li>
-                            <li><a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank" id="footer-linkedin">LinkedIn</a></li>
-                            <li><a href="https://x.com/hq_comedy" target="_blank" id="footer-x">X</a></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 WorldCorp International. All rights reserved.</p>
+            <div>
+                <p class="event-blurb">Leaders from government, business and civil society meet in one of the world's smallest countries to plan for a world that is smaller still.</p>
+                <a class="pill pill-white" href="events.html">Explore the programme</a>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="scripts/app.js"></script>
-    <script src="scripts/home.js"></script>
+    <!-- Publications -->
+    <section class="section" aria-labelledby="pubs-title">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="h1" id="pubs-title">Publications</h2>
+                <p class="lead">Reports, indices and outlooks that measure the world's progress toward fewer things.</p>
+                <a class="more-link" href="publications.html">All publications <svg viewBox="0 0 12 22" aria-hidden="true"><path class="chevron" d="M1.5 1.5l9 9.5-9 9.5"/></svg></a>
+            </div>
+            <div class="pub-grid" data-render="reports-latest"></div>
+        </div>
+    </section>
+
+    <!-- Numbers -->
+    <section class="section section-blue" aria-labelledby="numbers-title">
+        <div class="wrap">
+            <h2 class="h1" id="numbers-title">Efficiency, in numbers</h2>
+            <div class="stats">
+                <div class="stat"><p class="stat-num">1,000+</p><p class="stat-label">Partner companies, down from 1,400 at our founding</p></div>
+                <div class="stat"><p class="stat-num">9</p><p class="stat-label">Centres, consolidated from an original 11</p></div>
+                <div class="stat"><p class="stat-num">38%</p><p class="stat-label">Reduction in global options since 2023</p></div>
+                <div class="stat"><p class="stat-num">1</p><p class="stat-label">Shared vision for the future</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliates -->
+    <section class="section rule-top" aria-labelledby="affiliates-title">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="h1" id="affiliates-title">Our affiliated organizations</h2>
+                <p class="lead">WorldCorp works alongside a family of organizations in media and entertainment.</p>
+            </div>
+            <div class="universe-grid" data-render="universe"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section section-alt" aria-labelledby="newsletter-title">
+        <div class="wrap newsletter-band">
+            <div>
+                <h2 class="h1" id="newsletter-title">The Agenda, weekly</h2>
+                <p class="lead" style="margin-top:22px">Our newsletter, In Competence We Trust, brings the week's most important developments together in one place.</p>
+            </div>
+            <div class="actions">
+                <a class="pill pill-dark" href="https://incompetencewetrust.beehiiv.com/" target="_blank" rel="noopener">Subscribe</a>
+                <a class="pill pill-outline" href="join.html">Join us</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="js/wc-layout.js" data-part="footer"></script>
+<script src="js/wc.js"></script>
 </body>
 </html>
