@@ -952,7 +952,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     align-items: center;
 }
 
-.universe-logo img { max-height: 74px; width: auto; max-width: 180px; object-fit: contain; }
+.universe-logo img { max-height: 74px; width: auto; max-width: 180px; object-fit: contain; border-radius: 7px; }
 
 .universe-item h3 { font-size: 1.35rem; font-weight: 400; letter-spacing: -0.01em; }
 .universe-item p { color: var(--ink-2); font-weight: 300; font-size: 1.05rem; }
