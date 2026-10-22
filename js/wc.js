@@ -181,7 +181,7 @@
             el.innerHTML = WC.centres.map(function (c) { return centreCard(c); }).join('');
         },
         'spotlight': function (el) {
-            var picks = [WC.stories[0], WC.stories[3], WC.stories[4]];
+            var picks = [WC.stories[0], WC.stories[6], WC.stories[4]];
             el.innerHTML = picks.map(function (s) { return storyCard(s); }).join('');
         },
         'universe': function (el) {
