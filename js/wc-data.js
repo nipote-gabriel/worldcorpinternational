@@ -434,7 +434,7 @@ WC.universe = [
         name: 'Headquarters Comedy',
         desc: 'Our parent company. Produces live standup across New York City.',
         url: 'https://www.headquarterscomedy.com',
-        logo: 'assets/universe/headquarters-comedy.png'
+        logo: 'assets/universe/headquarters-comedy-logo.png'
     },
     {
         name: 'Panic News Network',
