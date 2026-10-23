@@ -47,7 +47,7 @@
                         '<svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="11.5" cy="11.5" r="7.5"/><path d="M17 17l6 6"/></svg>' +
                     '</button>' +
                     '<a class="pill pill-blue pill-sm header-join" href="join.html">Join us</a>' +
-                    '<button class="pill pill-dark" type="button" data-open-dialog="signin-dialog">Sign in</button>' +
+                    '<a class="pill pill-dark" href="' + WC.links.newsletter + '" target="_blank" rel="noopener">Newsletter</a>' +
                 '</div>' +
             '</div>' +
         '</header>';
@@ -84,20 +84,6 @@
                 '</div>' +
             '</div>' +
         '</div>' +
-
-        '<dialog class="wc-dialog" id="signin-dialog" aria-labelledby="signin-title">' +
-            '<div class="dialog-head"><strong>Sign in</strong><button class="icon-btn" type="button" data-close-dialog aria-label="Close"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6 6l14 14M20 6L6 20"/></svg></button></div>' +
-            '<div class="dialog-body">' +
-                '<h2 class="h3" id="signin-title">Welcome back</h2>' +
-                '<p>Sign in to access the Member Platform, session recordings and your personalized Agenda.</p>' +
-                '<form data-signin-form novalidate>' +
-                    '<div class="field"><label for="signin-email">Email</label><input id="signin-email" type="email" autocomplete="email" required></div>' +
-                    '<div class="field"><label for="signin-pass">Password</label><input id="signin-pass" type="password" autocomplete="current-password" required></div>' +
-                    '<div class="form-actions"><button class="pill pill-dark" type="submit">Sign in</button><a href="join.html">Become a member</a></div>' +
-                    '<p class="form-note" data-signin-note hidden></p>' +
-                '</form>' +
-            '</div>' +
-        '</dialog>' +
 
         '<dialog class="wc-dialog" id="search-dialog" aria-label="Search">' +
             '<div class="dialog-head"><strong>Search</strong><button class="icon-btn" type="button" data-close-dialog aria-label="Close"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6 6l14 14M20 6L6 20"/></svg></button></div>' +

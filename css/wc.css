@@ -389,7 +389,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .menu-secondary a:hover { color: var(--ink); }
 
-/* ---------- Dialogs (sign in, search, language) ---------- */
+/* ---------- Dialogs (search, language) ---------- */
 
 .wc-dialog {
     width: min(560px, calc(100vw - 32px));

@@ -74,25 +74,6 @@
         if (e.key === 'Escape') closeMenu();
     });
 
-    /* ---------- Sign in ---------- */
-
-    var signin = $('[data-signin-form]');
-    if (signin) {
-        signin.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var note = $('[data-signin-note]', signin);
-            var email = $('#signin-email').value.trim();
-            note.hidden = false;
-            if (!email || email.indexOf('@') < 1) {
-                note.className = 'form-note';
-                note.textContent = 'Please enter the email address associated with your membership.';
-                return;
-            }
-            note.className = 'form-note is-success';
-            note.textContent = 'Thank you. As part of our ongoing platform consolidation, individual member accounts are being merged into a single shared account. We will notify you when it is your turn to sign in.';
-        });
-    }
-
     /* ---------- Search ---------- */
 
     var searchInput = $('#search-input');
