@@ -46,7 +46,7 @@
                     '<button class="icon-btn header-search" type="button" data-open-dialog="search-dialog" aria-label="Search">' +
                         '<svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="11.5" cy="11.5" r="7.5"/><path d="M17 17l6 6"/></svg>' +
                     '</button>' +
-                    '<a class="pill pill-blue pill-sm header-join" href="join.html">Join us</a>' +
+                    '<a class="pill pill-blue header-join" href="join.html">Join us</a>' +
                     '<a class="pill pill-dark" href="' + WC.links.newsletter + '" target="_blank" rel="noopener">Newsletter</a>' +
                 '</div>' +
             '</div>' +
